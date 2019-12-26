@@ -55,30 +55,16 @@ public class OptionsScreen extends JamScreen {
         label = new Label("BGM", skin);
         table.add(label).right();
 
-        final Music bgm = core.assetManager.get("bgm/music-test.mp3");
-        bgm.setLooping(true);
+        final Music bgm = core.assetManager.get("bgm/menu.mp3");
         
         Slider slider = new Slider(0, 1, .01f, false, skin);
+        slider.setValue(core.bgm);
         table.add(slider);
         slider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 bgm.setVolume(((Slider) actor).getValue());
-            }
-        });
-        slider.addListener(new DragListener() {
-            {
-                setTapSquareSize(0);
-            }
-    
-            @Override
-            public void dragStart(InputEvent event, float x, float y, int pointer) {
-                bgm.play();
-            }
-    
-            @Override
-            public void dragStop(InputEvent event, float x, float y, int pointer) {
-                bgm.pause();
+                core.bgm = ((Slider) actor).getValue();
             }
         });
 
@@ -90,11 +76,13 @@ public class OptionsScreen extends JamScreen {
         sfx.setLooping(true);
         
         slider = new Slider(0, 1, .01f, false, skin);
+        slider.setValue(core.sfx);
         table.add(slider);
         slider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 sfx.setVolume(((Slider) actor).getValue());
+                core.sfx = ((Slider) actor).getValue();
             }
         });
         slider.addListener(new DragListener() {
@@ -104,11 +92,13 @@ public class OptionsScreen extends JamScreen {
         
             @Override
             public void dragStart(InputEvent event, float x, float y, int pointer) {
+                bgm.pause();
                 sfx.play();
             }
         
             @Override
             public void dragStop(InputEvent event, float x, float y, int pointer) {
+                bgm.play();
                 sfx.pause();
             }
         });

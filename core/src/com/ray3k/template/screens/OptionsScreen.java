@@ -18,7 +18,7 @@ public class OptionsScreen extends JamScreen {
     private Stage stage;
     private Skin skin;
     private Core core;
-    private final static Color BG_COLOR = new Color(Color.BLACK);
+    private final static Color BG_COLOR = new Color(Color.WHITE);
     
     public OptionsScreen(Action action) {
         this.action = action;
@@ -59,7 +59,7 @@ public class OptionsScreen extends JamScreen {
         
         Slider slider = new Slider(0, 1, .01f, false, skin);
         slider.setValue(core.bgm);
-        table.add(slider);
+        table.add(slider).minWidth(200);
         slider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -77,7 +77,7 @@ public class OptionsScreen extends JamScreen {
         
         slider = new Slider(0, 1, .01f, false, skin);
         slider.setValue(core.sfx);
-        table.add(slider);
+        table.add(slider).minWidth(200);
         slider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -137,7 +137,8 @@ public class OptionsScreen extends JamScreen {
     public void draw(float delta) {
         Gdx.gl.glClearColor(BG_COLOR.r, BG_COLOR.g, BG_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+    
+        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         stage.draw();
     }
     

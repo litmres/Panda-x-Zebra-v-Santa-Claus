@@ -17,6 +17,9 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
 
+import static com.badlogic.gdx.graphics.GL20.GL_ONE_MINUS_SRC_ALPHA;
+import static com.badlogic.gdx.graphics.GL20.GL_SRC_ALPHA;
+
 public class MenuScreen extends JamScreen {
     private Action gameAction;
     private Action optionsAction;
@@ -74,6 +77,8 @@ public class MenuScreen extends JamScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.input.setInputProcessor(null);
                 fg.addAction(Actions.sequence(Actions.fadeIn(.3f), gameAction));
+                final Music bgm = core.assetManager.get("bgm/menu.mp3");
+                bgm.stop();
             }
         });
     
@@ -113,7 +118,8 @@ public class MenuScreen extends JamScreen {
     public void draw(float delta) {
         Gdx.gl.glClearColor(BG_COLOR.r, BG_COLOR.g, BG_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        
+    
+        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         stage.draw();
     }
     

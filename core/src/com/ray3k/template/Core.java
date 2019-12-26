@@ -28,7 +28,7 @@ public class Core extends JamGame {
     public VfxManager vfxManager;
     public CrossPlatformWorker crossPlatformWorker;
     public static enum Binding {
-        LEFT, RIGHT, UP, DOWN, SHOOT, SPECIAL, SHIELD;
+        LEFT, RIGHT, UP, DOWN, ATTACK, DRAW_WEAPON;
     }
     public float bgm;
     public float sfx;
@@ -125,9 +125,8 @@ public class Core extends JamGame {
         JamScreen.addKeyBinding(Binding.RIGHT, Input.Keys.RIGHT);
         JamScreen.addKeyBinding(Binding.UP, Input.Keys.UP);
         JamScreen.addKeyBinding(Binding.DOWN, Input.Keys.DOWN);
-        JamScreen.addKeyBinding(Binding.SHOOT, Input.Keys.Z);
-        JamScreen.addKeyBinding(Binding.SHIELD, Input.Keys.X);
-        JamScreen.addKeyBinding(Binding.SPECIAL, Input.Keys.C);
+        JamScreen.addKeyBinding(Binding.ATTACK, Input.Keys.Z);
+        JamScreen.addKeyBinding(Binding.DRAW_WEAPON, Input.Keys.X);
     }
     
     private Screen createLoadScreen() {

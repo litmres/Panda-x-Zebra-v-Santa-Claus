@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.rafaskoberg.gdx.typinglabel.TypingConfig;
 import com.rafaskoberg.gdx.typinglabel.TypingLabel;
@@ -22,7 +23,7 @@ public class CreditsScreen extends JamScreen {
     private Stage stage;
     private Skin skin;
     private Core core;
-    private final static Color BG_COLOR = new Color(Color.BLACK);
+    private final static Color BG_COLOR = new Color(Color.WHITE);
     
     public CreditsScreen(Action action) {
         this.action = action;
@@ -33,7 +34,7 @@ public class CreditsScreen extends JamScreen {
         core = Core.core;
         skin = core.skin;
         
-        stage = new Stage(new ScreenViewport(), core.batch);
+        stage = new Stage(new FitViewport(1024, 576), core.batch);
         Gdx.input.setInputProcessor(stage);
         
         Table root = new Table();
@@ -51,8 +52,9 @@ public class CreditsScreen extends JamScreen {
         TypingConfig.INTERVAL_MULTIPLIERS_BY_CHAR.put('\n', .5f);
         TypingLabel typingLabel = new TypingLabel("This game was made by Raeleus.\n" +
                 "Copyright Raymond \"Raeleus\" Buckley © 2019\n\n" +
-                "Music by Devynn LaShure, Echo Blue Music\n" +
-                "https://www.echobluemusic.com", skin);
+                "Music by Andres Boissiere\n" +
+                "soundcloud.com/andres-boissiere\n" +
+                "instagram.com/andresboissiere", skin);
         typingLabel.setAlignment(Align.center);
         root.add(typingLabel);
         

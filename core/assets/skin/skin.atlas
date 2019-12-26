@@ -6,21 +6,28 @@ filter: Linear,Linear
 repeat: none
 button
   rotate: false
-  xy: 1, 337
+  xy: 1, 170
   size: 262, 95
   orig: 262, 95
   offset: 0, 0
   index: -1
+logo
+  rotate: false
+  xy: 1, 267
+  size: 368, 165
+  orig: 368, 165
+  offset: 0, 0
+  index: -1
 slider-bg
   rotate: false
-  xy: 1, 312
+  xy: 1, 145
   size: 257, 23
   orig: 257, 23
   offset: 0, 0
   index: -1
 slider-knob
   rotate: false
-  xy: 265, 367
+  xy: 371, 367
   size: 64, 65
   orig: 64, 65
   offset: 0, 0

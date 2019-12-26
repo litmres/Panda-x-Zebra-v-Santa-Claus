@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
@@ -22,7 +23,7 @@ public class MenuScreen extends JamScreen {
     private Stage stage;
     private Skin skin;
     private Core core;
-    private final static Color BG_COLOR = new Color(Color.BLACK);
+    private final static Color BG_COLOR = new Color(Color.WHITE);
     
     public MenuScreen(Action gameAction, Action optionsAction, Action creditsAction) {
         this.gameAction = gameAction;
@@ -35,7 +36,7 @@ public class MenuScreen extends JamScreen {
         core = Core.core;
         skin = core.skin;
         
-        stage = new Stage(new ScreenViewport(), core.batch);
+        stage = new Stage(new FitViewport(1024, 576), core.batch);
         Gdx.input.setInputProcessor(stage);
     
         Table root = new Table();
@@ -49,7 +50,7 @@ public class MenuScreen extends JamScreen {
         stage.addActor(fg);
         fg.addAction(Actions.sequence(Actions.fadeOut(.3f)));
     
-        Image image = new Image(skin, "libgdx-animation");
+        Image image = new Image(skin, "logo");
         image.setScaling(Scaling.none);
         root.add(image);
         

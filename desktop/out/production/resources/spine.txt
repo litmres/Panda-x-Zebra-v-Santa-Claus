@@ -1,0 +1,4 @@
+spine/character.json
+spine/libgdx-explosion.json
+spine/libgdx.json
+spine/ray3k.json

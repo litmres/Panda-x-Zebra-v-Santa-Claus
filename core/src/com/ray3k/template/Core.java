@@ -132,7 +132,7 @@ public class Core extends JamGame {
     
     private Screen createLoadScreen() {
         return new LoadScreen(Actions.run(() -> {
-            skin = assetManager.get("skin/shimmer-ui.json");
+            skin = assetManager.get("skin/skin.json");
             setScreen(createSplashScreen());
         }));
     }

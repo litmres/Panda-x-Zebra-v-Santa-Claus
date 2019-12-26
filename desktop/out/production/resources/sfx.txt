@@ -1,7 +1,5 @@
-sfx/ahh.mp3
-sfx/click.mp3
+sfx/libgdx burn.mp3
+sfx/libgdx explosion.mp3
+sfx/libgdx no please no.mp3
 sfx/libgdx.mp3
-sfx/please don't kill me.mp3
-sfx/shot.mp3
-sfx/swoosh.mp3
-sfx/tv.mp3
+sfx/ray3k metal.mp3

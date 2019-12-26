@@ -1,0 +1,263 @@
+{
+"skeleton": {
+	"hash": "uDbk+ku3Xsa5H7EUF1OXCwaeGm8",
+	"spine": "3.8.79",
+	"x": -241.65,
+	"width": 1265.65,
+	"height": 807.42,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "libgdx-x", "parent": "root", "length": 59.8, "rotation": -1.21, "x": 625.44, "y": 289.97 },
+	{ "name": "libgdx-laser", "parent": "root", "length": 160.74, "rotation": -1.26, "x": -76.57, "y": 292.83 },
+	{ "name": "libgdx-l", "parent": "root", "length": 50.69, "rotation": 90, "x": 365.8, "y": 268.28 },
+	{ "name": "libgdx-i", "parent": "root", "length": 60.28, "rotation": 90, "x": 389.09, "y": 267.6 },
+	{ "name": "libgdx-b", "parent": "root", "length": 63.02, "rotation": 90, "x": 420.6, "y": 271.02 },
+	{ "name": "libgdx-g", "parent": "root", "length": 63.02, "rotation": 89.38, "x": 480.88, "y": 269.65 },
+	{ "name": "libgdx-d", "parent": "root", "length": 73.98, "rotation": 89.47, "x": 548.01, "y": 268.97 }
+],
+"slots": [
+	{ "name": "background", "bone": "root" },
+	{ "name": "libgdx-template", "bone": "root", "color": "fbcb74ff", "dark": "c0ffa3" },
+	{ "name": "libgdx-l", "bone": "libgdx-l", "attachment": "libgdx-l" },
+	{ "name": "libgdx-i", "bone": "libgdx-i", "attachment": "libgdx-i" },
+	{ "name": "libgdx-b", "bone": "libgdx-b", "attachment": "libgdx-b" },
+	{ "name": "libgdx-g", "bone": "libgdx-g", "attachment": "libgdx-g" },
+	{ "name": "libgdx-d", "bone": "libgdx-d", "attachment": "libgdx-d" },
+	{ "name": "libgdx-x", "bone": "libgdx-x", "attachment": "libgdx-x" },
+	{ "name": "libgdx-laser", "bone": "libgdx-laser", "attachment": "libgdx-laser" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"libgdx-b": {
+				"libgdx-b": { "x": 18.89, "y": -3.76, "rotation": -90, "width": 51, "height": 60 },
+				"libgdx-b-burned": { "x": 18.89, "y": -3.76, "rotation": -90, "width": 51, "height": 60 }
+			},
+			"libgdx-d": {
+				"libgdx-d": { "x": 20.52, "y": -5.87, "rotation": -89.47, "width": 72, "height": 60 },
+				"libgdx-d-burned": { "x": 20.52, "y": -5.87, "rotation": -89.47, "width": 72, "height": 60 }
+			},
+			"libgdx-g": {
+				"libgdx-g": { "x": 20.05, "y": -2.52, "rotation": -89.38, "width": 72, "height": 60 },
+				"libgdx-g-burned": { "x": 20.05, "y": -2.52, "rotation": -89.38, "width": 72, "height": 60 }
+			},
+			"libgdx-i": {
+				"libgdx-i": { "x": 21.6, "y": -1.47, "rotation": -90, "width": 21, "height": 60 },
+				"libgdx-i-burned": { "x": 21.6, "y": -1.47, "rotation": -90, "width": 21, "height": 60 }
+			},
+			"libgdx-l": {
+				"libgdx-l": { "x": 21.84, "y": -0.48, "rotation": -90, "width": 20, "height": 60 },
+				"libgdx-l-burned": { "x": 21.84, "y": -0.48, "rotation": -90, "width": 20, "height": 60 }
+			},
+			"libgdx-laser": {
+				"libgdx-laser": { "x": -63.43, "y": 249.98, "rotation": -74.4, "width": 521, "height": 88 }
+			},
+			"libgdx-x": {
+				"libgdx-x": { "x": 2.41, "y": 0.23, "rotation": 1.21, "width": 81, "height": 60 },
+				"libgdx-x-burned": { "x": 2.41, "y": 0.23, "rotation": 1.21, "width": 81, "height": 60 }
+			}
+		}
+	}
+],
+"events": {
+	"explosion": { "string": "x:,y:" },
+	"libgdx": { "audio": "libgdx.mp3" },
+	"libgdx burn": { "audio": "libgdx burn.mp3" },
+	"libgdx explosion": { "audio": "libgdx explosion.mp3" },
+	"libgdx no please no": { "audio": "libgdx no please no.mp3" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"libgdx-b": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.3333, "color": "ffffff00" },
+					{ "time": 0.5, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 4.5, "name": "libgdx-b-burned" }
+				]
+			},
+			"libgdx-d": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.9, "color": "ffffff00" },
+					{ "time": 1.1333, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 5.1333, "name": "libgdx-d-burned" }
+				]
+			},
+			"libgdx-g": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.6667, "color": "ffffff00" },
+					{ "time": 0.9, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 4.8, "name": "libgdx-g-burned" }
+				]
+			},
+			"libgdx-i": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.1667, "color": "ffffff00" },
+					{ "time": 0.3333, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 4.3667, "name": "libgdx-i-burned" }
+				]
+			},
+			"libgdx-l": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1667, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 4.2333, "name": "libgdx-l-burned" }
+				]
+			},
+			"libgdx-laser": {
+				"color": [
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				]
+			},
+			"libgdx-x": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 1.1333, "color": "ffffff00" },
+					{ "time": 1.3333, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 8.3333, "color": "ffffffff" },
+					{ "time": 8.7, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 7.0333, "name": "libgdx-x-burned" }
+				]
+			}
+		},
+		"bones": {
+			"libgdx-laser": {
+				"translate": [
+					{ "time": 2.1 },
+					{ "time": 8.0333, "x": 1223.84 }
+				]
+			},
+			"libgdx-x": {
+				"translate": [
+					{ "time": 1.1333 },
+					{ "time": 1.2, "y": 37.69 },
+					{ "time": 1.3333, "curve": "stepped" },
+					{ "time": 5.1333 },
+					{ "time": 7.0333, "x": 330.29 }
+				]
+			},
+			"libgdx-l": {
+				"translate": [
+					{},
+					{ "time": 0.0667, "y": 42.43 },
+					{ "time": 0.1667 }
+				]
+			},
+			"libgdx-i": {
+				"translate": [
+					{ "time": 0.1667 },
+					{ "time": 0.2333, "y": 27.92 },
+					{ "time": 0.3333, "y": 2.79 }
+				]
+			},
+			"libgdx-b": {
+				"translate": [
+					{ "time": 0.3333 },
+					{ "time": 0.4, "y": 34.9 },
+					{ "time": 0.5 }
+				]
+			},
+			"libgdx-g": {
+				"translate": [
+					{ "time": 0.6667 },
+					{ "time": 0.7667, "y": 36.3 },
+					{ "time": 0.9 }
+				]
+			},
+			"libgdx-d": {
+				"translate": [
+					{ "time": 0.9 },
+					{ "time": 1, "y": 37.69 },
+					{ "time": 1.1333 }
+				]
+			}
+		},
+		"events": [
+			{ "name": "libgdx" },
+			{ "time": 2.1, "name": "libgdx burn" },
+			{ "time": 4.2333, "name": "explosion", "string": "x:365,y:268" },
+			{ "time": 4.2333, "name": "libgdx explosion" },
+			{ "time": 4.3667, "name": "explosion", "string": "x:389,y:270" },
+			{ "time": 4.5, "name": "explosion", "string": "x:420,y:270" },
+			{ "time": 4.5, "name": "libgdx explosion" },
+			{ "time": 4.8, "name": "explosion", "string": "x:480,y:270" },
+			{ "time": 4.8, "name": "libgdx explosion" },
+			{ "time": 5.1333, "name": "explosion", "string": "x:548,y:270" },
+			{ "time": 5.1333, "name": "libgdx no please no" },
+			{ "time": 7.0333, "name": "explosion", "string": "x:548,y:270" },
+			{ "time": 7.0333, "name": "libgdx explosion" },
+			{ "time": 9.1333, "name": "explosion", "string": "X:,y:" }
+		]
+	},
+	"stand": {
+		"slots": {
+			"libgdx-b": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-d": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-g": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-i": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-l": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-laser": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"libgdx-x": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			}
+		}
+	}
+}
+}

@@ -1,7 +1,7 @@
 package com.ray3k.template.screens;
 
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
@@ -16,11 +16,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Scaling;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.esotericsoftware.spine.*;
 import com.esotericsoftware.spine.utils.SkeletonDrawable;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
+import com.ray3k.template.entities.EntityController;
+import com.ray3k.template.entities.LibgdxExplosion;
 
 public class LibgdxScreen extends JamScreen {
     private Action action;
@@ -30,6 +32,9 @@ public class LibgdxScreen extends JamScreen {
     private AssetManager assetManager;
     private Array<SkeletonDrawable> skeletonDrawables;
     private final static Color BG_COLOR = new Color(Color.WHITE);
+    private EntityController entityController;
+    private LibgdxExplosion explosion;
+    private Array<Sound> sounds;
     
     public LibgdxScreen(Action action) {
         this.action = action;
@@ -41,20 +46,23 @@ public class LibgdxScreen extends JamScreen {
         skin = core.skin;
         assetManager = core.assetManager;
         skeletonDrawables = new Array<>();
+        entityController = new EntityController();
     
-        SkeletonData skeletonData = assetManager.get("spine-libgdx/libgdx.json");
+        SkeletonData skeletonData = assetManager.get("spine/libgdx.json");
         SkeletonDrawable skeletonDrawable = new SkeletonDrawable(core.skeletonRenderer, new Skeleton(skeletonData), new AnimationState(new AnimationStateData(skeletonData)));
-        skeletonDrawable.setMinWidth(350);
-        skeletonDrawable.setMinHeight(250);
+        skeletonDrawable.setMinWidth(1024);
+        skeletonDrawable.setMinHeight(576);
         skeletonDrawable.getAnimationState().setAnimation(0, "stand", false);
         skeletonDrawables.add(skeletonDrawable);
+        
+        sounds = new Array<>();
         
         final Action completeAction = Actions.sequence(Actions.run(() -> {
             skeletonDrawable.getAnimationState().setTimeScale(0f);
             Gdx.input.setInputProcessor(null);
         }), Actions.color(new Color(BG_COLOR.r, BG_COLOR.g, BG_COLOR.b, 0)), Actions.fadeIn(.3f), action);
         
-        stage = new Stage(new ScreenViewport(), core.batch);
+        stage = new Stage(new FillViewport(1024, 576), core.batch);
         Gdx.input.setInputProcessor(stage);
         
         Table root = new Table();
@@ -84,6 +92,7 @@ public class LibgdxScreen extends JamScreen {
                 if (event.getData().getAudioPath() != null && !event.getData().getAudioPath().equals("")) {
                     Sound sound = core.assetManager.get("sfx/" + event.getData().getAudioPath());
                     sound.play();
+                    sounds.add(sound);
                 }
             }
         });
@@ -101,6 +110,9 @@ public class LibgdxScreen extends JamScreen {
                 return true;
             }
         });
+        
+        explosion = new LibgdxExplosion();
+        entityController.add(explosion);
     }
     
     @Override
@@ -109,7 +121,13 @@ public class LibgdxScreen extends JamScreen {
         
         for (SkeletonDrawable skeletonDrawable : skeletonDrawables) {
             skeletonDrawable.update(delta);
+            Bone bone = skeletonDrawable.getSkeleton().findBone("libgdx-laser");
+            if (bone != null) {
+                explosion.setPosition(bone.getX(), bone.getY());
+            }
         }
+        
+        entityController.act(delta);
     }
     
     @Override
@@ -118,10 +136,22 @@ public class LibgdxScreen extends JamScreen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
         stage.draw();
+        
+        core.batch.begin();
+        stage.getViewport().apply();
+        entityController.draw(delta);
+        core.batch.end();
     }
     
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
+    }
+    
+    @Override
+    public void hide() {
+        for (Sound sound : sounds) {
+            sound.stop();
+        }
     }
 }

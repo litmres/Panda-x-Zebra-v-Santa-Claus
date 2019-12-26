@@ -1,0 +1,556 @@
+{
+"skeleton": { "hash": "wu/ZEtNSkQXVkaOBMAqJOUwWGnk", "spine": "3.8.79", "width": 1024, "height": 576, "images": "", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "ray3k-part-23", "parent": "root", "length": 128.7, "rotation": 90.32, "x": 82.71, "y": 258.04 },
+	{ "name": "ray3k-part-25", "parent": "root", "length": 46.92, "rotation": 7.88, "x": 76.99, "y": 182.97 },
+	{ "name": "ray3k-part-26", "parent": "root", "length": 60.83, "rotation": 107.8, "x": 197.82, "y": 191.55 },
+	{ "name": "ray3k-part-24", "parent": "root", "length": 88.71, "rotation": 1.85, "x": 219.27, "y": 373.87 },
+	{ "name": "ray3k-part-27", "parent": "root", "length": 60.44, "rotation": 64.04, "x": 270.04, "y": 182.25 },
+	{ "name": "ray3k-part-29", "parent": "root", "length": 163.85, "rotation": 114.22, "x": 433.77, "y": 180.82 },
+	{ "name": "ray3k-part-28", "parent": "root", "length": 113.29, "rotation": 133.47, "x": 529.58, "y": 268.05 },
+	{ "name": "ray3k-part-30", "parent": "root", "length": 74.36, "rotation": 43.05, "x": 559.61, "y": 330.26 },
+	{ "name": "ray3k-part-33", "parent": "root", "length": 60.06, "rotation": 0.68, "x": 497.41, "y": 165.09 },
+	{ "name": "ray3k-part-31", "parent": "root", "length": 116.55, "rotation": 0.7, "x": 648.99, "y": 354.57 },
+	{ "name": "ray3k-part-32", "parent": "root", "length": 114.49, "rotation": 6.81, "x": 643.98, "y": 175.82 },
+	{ "name": "ray3k-part-34", "parent": "root", "length": 182.29, "rotation": 85.05, "x": 826.31, "y": 180.82 },
+	{ "name": "ray3k-part-35", "parent": "root", "length": 80.08, "rotation": 30, "x": 884.22, "y": 295.22 },
+	{ "name": "ray3k-part-36", "parent": "root", "length": 47.21, "rotation": 1.74, "x": 906.39, "y": 185.11 }
+],
+"slots": [
+	{ "name": "background", "bone": "root" },
+	{ "name": "ray3k-bone", "bone": "root", "attachment": "ray3k-bone" },
+	{ "name": "ray3k-template", "bone": "root", "color": "a63030ff" },
+	{ "name": "ray3k-part-23", "bone": "ray3k-part-23", "attachment": "ray3k-part-23" },
+	{ "name": "ray3k-part-24", "bone": "ray3k-part-24", "attachment": "ray3k-part-24" },
+	{ "name": "ray3k-part-25", "bone": "ray3k-part-25", "attachment": "ray3k-part-25" },
+	{ "name": "ray3k-part-26", "bone": "ray3k-part-26", "attachment": "ray3k-part-26" },
+	{ "name": "ray3k-part-27", "bone": "ray3k-part-27", "attachment": "ray3k-part-27" },
+	{ "name": "ray3k-part-28", "bone": "ray3k-part-28", "attachment": "ray3k-part-28" },
+	{ "name": "ray3k-part-29", "bone": "ray3k-part-29", "attachment": "ray3k-part-29" },
+	{ "name": "ray3k-part-30", "bone": "ray3k-part-30", "attachment": "ray3k-part-30" },
+	{ "name": "ray3k-part-31", "bone": "ray3k-part-31", "attachment": "ray3k-part-31" },
+	{ "name": "ray3k-part-32", "bone": "ray3k-part-32", "attachment": "ray3k-part-32" },
+	{ "name": "ray3k-part-33", "bone": "ray3k-part-33", "attachment": "ray3k-part-33" },
+	{ "name": "ray3k-part-34", "bone": "ray3k-part-34", "attachment": "ray3k-part-34" },
+	{ "name": "ray3k-part-35", "bone": "ray3k-part-35", "attachment": "ray3k-part-35" },
+	{ "name": "ray3k-part-36", "bone": "ray3k-part-36", "attachment": "ray3k-part-36" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"ray3k-bone": {
+				"ray3k-bone": { "x": 508.77, "y": 275.77, "width": 906, "height": 252 }
+			},
+			"ray3k-part-23": {
+				"ray3k-part-23": { "x": 57.22, "y": 2.54, "rotation": -90.32, "width": 66, "height": 215 }
+			},
+			"ray3k-part-24": {
+				"ray3k-part-24": { "x": -28.84, "y": -29.12, "rotation": -1.85, "width": 137, "height": 131 }
+			},
+			"ray3k-part-25": {
+				"ray3k-part-25": { "x": 16.88, "y": 1.99, "rotation": -7.88, "width": 82, "height": 54 }
+			},
+			"ray3k-part-26": {
+				"ray3k-part-26": { "x": 29.53, "y": 7.79, "rotation": -107.8, "width": 82, "height": 81 }
+			},
+			"ray3k-part-27": {
+				"ray3k-part-27": { "x": 24.28, "y": -2.5, "rotation": -64.04, "width": 103, "height": 91 }
+			},
+			"ray3k-part-28": {
+				"ray3k-part-28": { "x": 45, "y": 19.41, "rotation": -133.47, "width": 139, "height": 202 }
+			},
+			"ray3k-part-29": {
+				"ray3k-part-29": { "x": 103.48, "y": 5.2, "rotation": -114.22, "width": 172, "height": 235 }
+			},
+			"ray3k-part-30": {
+				"ray3k-part-30": { "x": 37.32, "y": 3.29, "rotation": -43.05, "width": 99, "height": 95 }
+			},
+			"ray3k-part-31": {
+				"ray3k-part-31": { "x": 56.02, "y": -37.87, "rotation": -0.7, "width": 166, "height": 136 }
+			},
+			"ray3k-part-32": {
+				"ray3k-part-32": { "x": 65.48, "y": 11.62, "rotation": -6.81, "width": 150, "height": 77 }
+			},
+			"ray3k-part-33": {
+				"ray3k-part-33": { "x": 23.57, "y": -2.43, "rotation": -0.68, "width": 73, "height": 17 }
+			},
+			"ray3k-part-34": {
+				"ray3k-part-34": { "x": 92.32, "y": 2.97, "rotation": -85.05, "width": 77, "height": 206 }
+			},
+			"ray3k-part-35": {
+				"ray3k-part-35": { "x": 36.82, "y": -16.3, "rotation": -30, "width": 106, "height": 123 }
+			},
+			"ray3k-part-36": {
+				"ray3k-part-36": { "x": 18, "y": 3.75, "rotation": -1.74, "width": 64, "height": 46 }
+			}
+		}
+	}
+],
+"events": {
+	"ray3k metal": { "audio": "ray3k metal.mp3" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"ray3k-bone": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-bone" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-23": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-23" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-24": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-24" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-25": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-25" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-26": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-26" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-27": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-27" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-28": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-28" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-29": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-29" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-30": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-30" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-31": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-31" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-32": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-32" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-33": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-33" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-34": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-34" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-35": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-35" },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-36": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.0333, "name": "ray3k-part-36" },
+					{ "time": 7.3, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"ray3k-part-23": {
+				"translate": [
+					{ "y": 41.08, "curve": "stepped" },
+					{ "time": 0.3333, "y": 41.08, "curve": 0.896, "c2": 0.01, "c3": 0.918, "c4": 0.15 },
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-24": {
+				"translate": [
+					{ "x": 37.07, "y": 35.07, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 37.07,
+						"y": 35.07,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-25": {
+				"translate": [
+					{ "y": -47.09, "curve": "stepped" },
+					{ "time": 0.3333, "y": -47.09, "curve": 0.896, "c2": 0.01, "c3": 0.918, "c4": 0.15 },
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-26": {
+				"translate": [
+					{ "x": 27.05, "y": -53.11, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 27.05,
+						"y": -53.11,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-27": {
+				"translate": [
+					{ "x": -18.04, "y": -25.05, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": -18.04,
+						"y": -25.05,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-28": {
+				"translate": [
+					{ "x": -38.08, "y": 33.07, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": -38.08,
+						"y": 33.07,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-29": {
+				"translate": [
+					{ "x": -22.04, "y": 42.08, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": -22.04,
+						"y": 42.08,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-30": {
+				"translate": [
+					{ "x": 33.07, "y": 33.07, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 33.07,
+						"y": 33.07,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-31": {
+				"translate": [
+					{ "x": 26.05, "y": 31.06, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 26.05,
+						"y": 31.06,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-32": {
+				"translate": [
+					{ "x": -59.12, "y": -20.04, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": -59.12,
+						"y": -20.04,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-33": {
+				"translate": [
+					{ "x": 1, "y": -10.02, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 1,
+						"y": -10.02,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-34": {
+				"translate": [
+					{ "x": 8.02, "y": 64.13, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 8.02,
+						"y": 64.13,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-35": {
+				"translate": [
+					{ "x": 29.06, "y": -11.02, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 29.06,
+						"y": -11.02,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			},
+			"ray3k-part-36": {
+				"translate": [
+					{ "x": 10.02, "y": -24.05, "curve": "stepped" },
+					{
+						"time": 0.3333,
+						"x": 10.02,
+						"y": -24.05,
+						"curve": 0.896,
+						"c2": 0.01,
+						"c3": 0.918,
+						"c4": 0.15
+					},
+					{ "time": 0.8333 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0.8333, "name": "ray3k metal" }
+		]
+	},
+	"stand": {
+		"slots": {
+			"ray3k-bone": {
+				"attachment": [
+					{ "name": null },
+					{ "time": 7.3, "name": null }
+				]
+			},
+			"ray3k-part-23": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-24": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-25": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-26": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-27": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-28": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-29": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-30": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-31": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-32": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-33": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-34": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-35": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"ray3k-part-36": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		},
+		"bones": {
+			"ray3k-part-23": {
+				"translate": [
+					{ "y": 41.08 }
+				]
+			},
+			"ray3k-part-24": {
+				"translate": [
+					{ "x": 37.07, "y": 35.07 }
+				]
+			},
+			"ray3k-part-25": {
+				"translate": [
+					{ "y": -47.09 }
+				]
+			},
+			"ray3k-part-26": {
+				"translate": [
+					{ "x": 27.05, "y": -53.11 }
+				]
+			},
+			"ray3k-part-27": {
+				"translate": [
+					{ "x": -18.04, "y": -25.05 }
+				]
+			},
+			"ray3k-part-28": {
+				"translate": [
+					{ "x": -38.08, "y": 33.07 }
+				]
+			},
+			"ray3k-part-29": {
+				"translate": [
+					{ "x": -22.04, "y": 42.08 }
+				]
+			},
+			"ray3k-part-30": {
+				"translate": [
+					{ "x": 33.07, "y": 33.07 }
+				]
+			},
+			"ray3k-part-31": {
+				"translate": [
+					{ "x": 26.05, "y": 31.06 }
+				]
+			},
+			"ray3k-part-32": {
+				"translate": [
+					{ "x": -59.12, "y": -20.04 }
+				]
+			},
+			"ray3k-part-33": {
+				"translate": [
+					{ "x": 1, "y": -10.02 }
+				]
+			},
+			"ray3k-part-34": {
+				"translate": [
+					{ "x": 8.02, "y": 64.13 }
+				]
+			},
+			"ray3k-part-35": {
+				"translate": [
+					{ "x": 29.06, "y": -11.02 }
+				]
+			},
+			"ray3k-part-36": {
+				"translate": [
+					{ "x": 10.02, "y": -24.05 }
+				]
+			}
+		}
+	}
+}
+}

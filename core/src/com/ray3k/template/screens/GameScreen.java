@@ -48,6 +48,10 @@ public class GameScreen extends JamScreen {
         batch = core.batch;
         vfxManager = core.vfxManager;
         vfxEffect = new EarthquakeEffect();
+        vfxManager.addEffect(vfxEffect);
+        vfxEffect.setSpeed(0);
+        vfxEffect.setAmount(0);
+        vfxEffect.rebind();
         
         characterSkeletonData = assetManager.get("spine/character.json");
         characterAnimationStateData = new AnimationStateData(characterSkeletonData);
@@ -67,8 +71,6 @@ public class GameScreen extends JamScreen {
         PlayerEntity playerEntity = new PlayerEntity();
         entityController.add(playerEntity);
         playerEntity.skeleton.setSkin(core.characterSkin.skin);
-        
-//        vfxManager.addEffect(vfxEffect);
     }
     
     @Override

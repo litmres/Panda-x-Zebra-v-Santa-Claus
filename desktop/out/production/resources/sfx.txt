@@ -10,8 +10,16 @@ sfx/libgdx explosion.mp3
 sfx/libgdx no please no.mp3
 sfx/libgdx.mp3
 sfx/magnum.mp3
+sfx/panda-intimidate.mp3
+sfx/panda-select.mp3
+sfx/panda-weapons.mp3
 sfx/pistol-shot.mp3
 sfx/ray3k metal.mp3
+sfx/santa-intimidate.mp3
+sfx/santa-intro.mp3
 sfx/shotgun.mp3
 sfx/smg-shot.mp3
 sfx/whoosh.mp3
+sfx/zebra-intimidate.mp3
+sfx/zebra-select.mp3
+sfx/zebra-weapons.mp3

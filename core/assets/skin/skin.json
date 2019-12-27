@@ -103,6 +103,20 @@
 		"playMode": 2
 	}
 },
+"com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle": {
+	"default": {
+		"up": "button-ten",
+		"down": "button-ten-color"
+	},
+	"panda": {
+		"parent": "default",
+		"imageUp": "panda-head_0"
+	},
+	"zebra": {
+		"parent": "default",
+		"imageUp": "zebra-head_1"
+	}
+},
 "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
 	"default": {
 		"font": "font",

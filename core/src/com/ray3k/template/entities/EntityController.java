@@ -47,7 +47,7 @@ public class EntityController {
                 entity.animationState.update(delta);
                 entity.skeleton.updateWorldTransform();
                 entity.animationState.apply(entity.skeleton);
-                entity.skeletonBounds.update(entity.skeleton, true);
+                if (entity.skeletonBounds != null) entity.skeletonBounds.update(entity.skeleton, true);
             }
             
             entity.act(delta);

@@ -1,54 +1,68 @@
 
 skin.png
-size: 512,512
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 button
   rotate: false
-  xy: 1, 170
+  xy: 1, 426
   size: 262, 95
   orig: 262, 95
   offset: 0, 0
   index: -1
 logo
   rotate: false
-  xy: 1, 267
+  xy: 1, 523
   size: 368, 165
   orig: 368, 165
   offset: 0, 0
   index: -1
+panda-head_0
+  rotate: false
+  xy: 1, 239
+  size: 204, 185
+  orig: 204, 185
+  offset: 0, 0
+  index: -1
 scroll-bar-knob
   rotate: false
-  xy: 1, 34
+  xy: 207, 315
   size: 23, 109
   orig: 23, 109
   offset: 0, 0
   index: -1
 slider-bg
   rotate: false
-  xy: 1, 145
+  xy: 509, 741
   size: 257, 23
   orig: 257, 23
   offset: 0, 0
   index: -1
 slider-knob
   rotate: false
-  xy: 371, 367
+  xy: 371, 623
   size: 64, 65
   orig: 64, 65
   offset: 0, 0
   index: -1
 white
   rotate: false
-  xy: 509, 507
+  xy: 265, 520
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
+zebra-head_1
+  rotate: false
+  xy: 1, 19
+  size: 168, 218
+  orig: 168, 218
+  offset: 0, 0
+  index: -1
 RaeleusScriptius-Regular
   rotate: false
-  xy: 1, 434
+  xy: 1, 690
   size: 506, 74
   orig: 506, 74
   offset: 0, 0

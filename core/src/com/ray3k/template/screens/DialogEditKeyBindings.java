@@ -23,6 +23,7 @@ public class DialogEditKeyBindings extends Dialog {
     
         Table table = new Table();
         ScrollPane scrollPane = new ScrollPane(table, skin);
+        scrollPane.setFadeScrollBars(false);
         root.add(scrollPane).grow();
         
         refreshTable(table);

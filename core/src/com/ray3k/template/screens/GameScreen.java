@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -15,13 +14,13 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.crashinvaders.vfx.VfxManager;
 import com.crashinvaders.vfx.effects.EarthquakeEffect;
+import com.esotericsoftware.spine.AnimationStateData;
+import com.esotericsoftware.spine.SkeletonData;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
 import com.ray3k.template.entities.EntityController;
+import com.ray3k.template.entities.PlayerEntity;
 import space.earlygrey.shapedrawer.ShapeDrawer;
-
-import static com.badlogic.gdx.graphics.GL20.GL_ONE_MINUS_SRC_ALPHA;
-import static com.badlogic.gdx.graphics.GL20.GL_SRC_ALPHA;
 
 public class GameScreen extends JamScreen {
     public static GameScreen gameScreen;
@@ -36,8 +35,12 @@ public class GameScreen extends JamScreen {
     public EntityController entityController;
     private VfxManager vfxManager;
     private EarthquakeEffect vfxEffect;
+    public static SkeletonData characterSkeletonData;
+    public static AnimationStateData characterAnimationStateData;
     
     public GameScreen(Action action) {
+        BG_COLOR.set(Color.WHITE);
+        
         gameScreen = this;
         this.action = action;
         core = Core.core;
@@ -46,7 +49,8 @@ public class GameScreen extends JamScreen {
         vfxManager = core.vfxManager;
         vfxEffect = new EarthquakeEffect();
         
-        BG_COLOR.set(Color.PINK);
+        characterSkeletonData = assetManager.get("spine/character.json");
+        characterAnimationStateData = new AnimationStateData(characterSkeletonData);
         
         stage = new Stage(new ScreenViewport(), core.batch);
         skin = assetManager.get("skin/skin.json");
@@ -60,8 +64,11 @@ public class GameScreen extends JamScreen {
         viewport = new FitViewport(1024, 576, camera);
         
         entityController = new EntityController();
+        PlayerEntity playerEntity = new PlayerEntity();
+        entityController.add(playerEntity);
+        playerEntity.skeleton.setSkin(core.characterSkin.skin);
         
-        vfxManager.addEffect(vfxEffect);
+//        vfxManager.addEffect(vfxEffect);
     }
     
     @Override
@@ -73,12 +80,11 @@ public class GameScreen extends JamScreen {
     
     @Override
     public void draw(float delta) {
-        Gdx.gl.glClearColor(BG_COLOR.r, BG_COLOR.g, BG_COLOR.b, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-    
         batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         vfxManager.cleanUpBuffers();
         vfxManager.beginCapture();
+        Gdx.gl.glClearColor(BG_COLOR.r, BG_COLOR.g, BG_COLOR.b, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         viewport.apply();
         batch.setProjectionMatrix(camera.combined);
@@ -87,7 +93,7 @@ public class GameScreen extends JamScreen {
         vfxManager.endCapture();
         vfxManager.applyEffects();
         vfxManager.renderToScreen();
-    
+
         batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         stage.draw();
     }

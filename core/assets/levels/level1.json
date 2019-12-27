@@ -1,0 +1,66 @@
+{
+  "ogmoVersion": "3.2.2",
+  "width": 1024,
+  "height": 576,
+  "offsetX": 0,
+  "offsetY": 0,
+  "values": {"name": "", "version": "1"},
+  "layers": [
+    {
+      "name": "entities",
+      "_eid": "85851571",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 128,
+      "gridCellsY": 72,
+      "entities": [
+        {"name": "EnemyController", "id": 0, "_eid": "85877187", "x": 192, "y": 336, "originX": 25, "originY": 25},
+        {"name": "Player", "id": 1, "_eid": "86268778", "x": 496, "y": 312, "width": 50, "height": 50, "originX": 5, "originY": 5, "rotation": 0, "flippedX": false, "flippedY": false},
+        {"name": "BottomBarrier", "id": 2, "_eid": "45994539", "x": 8, "y": 536, "originX": 0, "originY": 0},
+        {"name": "TopBarrier", "id": 3, "_eid": "45991064", "x": 24, "y": 256, "originX": 0, "originY": 0}
+      ]
+    },
+    {
+      "name": "foreground",
+      "_eid": "48387935",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 128,
+      "gridCellsY": 72,
+      "decals": [
+        {"x": 208, "y": 456, "scaleX": -0.5, "scaleY": 0.5, "rotation": 0, "texture": "decal-candy-cane.png"},
+        {"x": 912, "y": 568, "scaleX": 0.5, "scaleY": 0.5, "rotation": 0, "texture": "decal-gumdrop.png"}
+      ],
+      "folder": "..\\output"
+    },
+    {
+      "name": "background",
+      "_eid": "85869462",
+      "offsetX": 0,
+      "offsetY": 0,
+      "gridCellWidth": 8,
+      "gridCellHeight": 8,
+      "gridCellsX": 128,
+      "gridCellsY": 72,
+      "decals": [
+        {"x": 784, "y": 64, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-white.png"},
+        {"x": 264, "y": 64, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-white.png"},
+        {"x": 264, "y": 376, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-cream.png"},
+        {"x": 784, "y": 376, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-cream.png"},
+        {"x": 104, "y": 272, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-tile.png"},
+        {"x": 316, "y": 272, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-tile.png"},
+        {"x": 528, "y": 272, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-tile.png"},
+        {"x": 740, "y": 272, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-tile.png"},
+        {"x": 952, "y": 272, "scaleX": 1, "scaleY": 1, "rotation": 0, "texture": "level-tile.png"},
+        {"x": 88, "y": 112, "scaleX": 0.5, "scaleY": 0.5, "rotation": 0, "texture": "donut.png"},
+        {"x": 896, "y": 16, "scaleX": 0.5, "scaleY": 0.5, "rotation": 0, "texture": "decal-peppermint.png"},
+        {"x": 488, "y": 40, "scaleX": 0.5, "scaleY": 0.5, "rotation": 0, "texture": "decal-cake.png"}
+      ],
+      "folder": "..\\output"
+    }
+  ]
+}

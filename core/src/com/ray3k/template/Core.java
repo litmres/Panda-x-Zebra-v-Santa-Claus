@@ -32,6 +32,15 @@ public class Core extends JamGame {
     }
     public float bgm;
     public float sfx;
+    public enum CharacterSkin {
+        ZEBRA("zebra"), PANDA("panda"), ELF("elf"), SANTA("santa");
+        
+        public String skin;
+        CharacterSkin(String skin) {
+            this.skin = skin;
+        }
+    }
+    public CharacterSkin characterSkin;
     
     @Override
     public void create() {
@@ -149,7 +158,7 @@ public class Core extends JamGame {
     }
     
     private Screen createMenuScreen() {
-        return new MenuScreen(Actions.run(() -> setScreen(createGameScreen())),
+        return new MenuScreen(Actions.run(() -> setScreen(createStoryScreen())),
                 Actions.run(() -> setScreen(createOptionsScreen())),
                 Actions.run(() -> setScreen(createCreditsScreen())));
     }
@@ -164,5 +173,9 @@ public class Core extends JamGame {
     
     private Screen createCreditsScreen() {
         return new CreditsScreen(Actions.run(() -> setScreen(createMenuScreen())));
+    }
+    
+    private Screen createStoryScreen() {
+        return new StoryScreen(Actions.run(() -> setScreen(createGameScreen())));
     }
 }

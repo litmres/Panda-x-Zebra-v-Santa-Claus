@@ -101,6 +101,15 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
         return key == Input.Keys.ANY_KEY ? keysJustPressed.size > 0 : keysJustPressed.contains(key);
     }
     
+    public boolean isKeyJustPressed(int... keys) {
+        for (int key : keys) {
+            if (isKeyJustPressed(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     /**
      * Returns true if the associated mouse button has been pressed since the last step.
      * @param button The button value or -1 for any button
@@ -108,6 +117,15 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
      */
     public boolean isButtonJustPressed(int button) {
         return button == ANY_BUTTON ? buttonsJustPressed.size > 0 : buttonsJustPressed.contains(button);
+    }
+    
+    public boolean isButtonJustPressed(int... buttons) {
+        for (int button : buttons) {
+            if (isButtonJustPressed(button)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean isKeyPressed(int key) {
@@ -142,6 +160,15 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
         } else {
             return false;
         }
+    }
+    
+    public boolean isBindingJustPressed(Core.Binding... bindings) {
+        for (Core.Binding binding : bindings) {
+            if (isBindingJustPressed(binding)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public static void clearBindings() {

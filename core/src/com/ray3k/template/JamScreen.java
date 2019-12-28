@@ -136,9 +136,9 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
     
     public boolean isBindingJustPressed(Core.Binding binding) {
         if (keyBindings.containsKey(binding)) {
-            return isKeyPressed(keyBindings.get(binding, Input.Keys.ANY_KEY));
+            return isKeyJustPressed(keyBindings.get(binding, Input.Keys.ANY_KEY));
         } else if (buttonBindings.containsKey(binding)) {
-            return isButtonPressed(keyBindings.get(binding, ANY_BUTTON));
+            return isButtonJustPressed(keyBindings.get(binding, ANY_BUTTON));
         } else {
             return false;
         }

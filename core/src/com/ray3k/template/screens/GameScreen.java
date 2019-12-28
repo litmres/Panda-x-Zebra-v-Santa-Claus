@@ -3,6 +3,7 @@ package com.ray3k.template.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.crashinvaders.vfx.VfxManager;
@@ -39,6 +41,7 @@ public class GameScreen extends JamScreen {
     public static SkeletonData characterSkeletonData;
     public static AnimationStateData characterAnimationStateData;
     public static final int CHARACTER_MIN_DEPTH = 1000;
+    public static Array<Sound> hurtSounds;
     
     public GameScreen(Action action) {
         BG_COLOR.set(Color.LIGHT_GRAY);
@@ -75,6 +78,11 @@ public class GameScreen extends JamScreen {
         player.setPosition(512, 288);
         entityController.add(player);
         entityController.add(new EnemyEntity());
+        
+        hurtSounds = new Array<>();
+        hurtSounds.add(assetManager.get("sfx/hurt1.mp3"));
+        hurtSounds.add(assetManager.get("sfx/hurt2.mp3"));
+        hurtSounds.add(assetManager.get("sfx/hurt3.mp3"));
     }
     
     @Override

@@ -1,10 +1,15 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.esotericsoftware.spine.Skeleton;
+import com.esotericsoftware.spine.Slot;
+import com.ray3k.template.Utils;
 import com.ray3k.template.screens.GameScreen;
 
 public class EnemyEntity extends Entity {
@@ -21,6 +26,12 @@ public class EnemyEntity extends Entity {
     public Mode mode;
     public static final float ATTACK_TIMER_MIN = .25f;
     public static final float ATTACK_TIMER_MAX = 1f;
+    public Slot bboxSlot;
+    public Slot attackBbboxSlot;
+    public Rectangle bboxRectangle = new Rectangle();
+    public Rectangle attackBboxRectangle = new Rectangle();
+    public static final float DAMAGE = 30f;
+    public float health;
     
     @Override
     public void create() {
@@ -43,6 +54,10 @@ public class EnemyEntity extends Entity {
     
         mode = Mode.WALK;
         attackTimer = MathUtils.random(ATTACK_TIMER_MIN, ATTACK_TIMER_MAX);
+    
+        bboxSlot = skeleton.findSlot("bbox");
+        attackBbboxSlot = skeleton.findSlot("attack-bbox");
+        health = 100f;
     }
     
     @Override
@@ -57,6 +72,9 @@ public class EnemyEntity extends Entity {
     
     
         depth = GameScreen.CHARACTER_MIN_DEPTH + (int) y;
+    
+        Utils.localVerticiesToAABB(bboxRectangle, bboxSlot);
+        Utils.localVerticiesToAABB(attackBboxRectangle, attackBbboxSlot);
     }
     
     private void movement(float delta) {
@@ -125,16 +143,38 @@ public class EnemyEntity extends Entity {
     private void animationComplete(TrackEntry entry) {
         switch (mode) {
             case ATTACK:
+            case HURT:
                 mode = Mode.STAND;
                 animationState.setAnimation(0, "stand", false);
                 attackTimer = MathUtils.random(ATTACK_TIMER_MIN, ATTACK_TIMER_MAX);
                 break;
+            case DEAD:
+                destroy = true;
+                break;
+        }
+    }
+    
+    public void hurt(float damage) {
+        if (mode != Mode.DEAD) {
+            health -= damage;
+            if (health <= 0) {
+                gameScreen.assetManager.get("sfx/die.mp3", Sound.class).play();
+                mode = Mode.DEAD;
+                animationState.setAnimation(0, "die", false);
+                setSpeed(0);
+            } else {
+                GameScreen.hurtSounds.random().play();
+                mode = Mode.HURT;
+                animationState.setAnimation(0, "hurt-1", false);
+                setSpeed(0);
+            }
         }
     }
     
     @Override
     public void draw(float delta) {
-    
+        gameScreen.shapeDrawer.filledRectangle(bboxRectangle, new Color(0, 1, 1, .5f));
+        if (attackBbboxSlot.getAttachment() != null) gameScreen.shapeDrawer.filledRectangle(attackBboxRectangle, new Color(1, 0, 1, .5f));
     }
     
     @Override

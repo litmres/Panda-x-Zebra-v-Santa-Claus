@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "TYmM6fIVBEq26/pfsgc70XiNZ+Q",
+	"hash": "Y9Wb7DZS0tQ6REtlH7tDYgNSOCI",
 	"spine": "3.8.79",
 	"x": -139.56,
 	"y": -32.71,
@@ -50,7 +50,7 @@
 				"attack-bbox": {
 					"type": "boundingbox",
 					"vertexCount": 4,
-					"vertices": [ -207.01, 60.26, -211.83, -51.83, 62.11, -60.13, 66.92, 51.96 ],
+					"vertices": [ -375.91, 65.38, -384.99, -46.58, 62.11, -60.13, 66.92, 51.96 ],
 					"color": "f00000ff"
 				}
 			},

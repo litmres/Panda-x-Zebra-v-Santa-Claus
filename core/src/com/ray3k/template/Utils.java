@@ -16,6 +16,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.ShortArray;
 import com.esotericsoftware.spine.SkeletonBounds;
+import com.esotericsoftware.spine.Slot;
+import com.esotericsoftware.spine.attachments.VertexAttachment;
 import regexodus.Matcher;
 import regexodus.Pattern;
 
@@ -204,4 +206,42 @@ public class Utils {
     
     private static final BoundingBox bboxTemp = new BoundingBox();
     private static final Ray rayTemp = new Ray();
+    
+    public static Rectangle worldVerticiesToAABB(float[] verts, Rectangle rectangle) {
+        float minX = verts[0];
+        float maxX = verts[0];
+        float minY = verts[1];
+        float maxY = verts[1];
+        for (int i = 0; i + 1 < verts.length; i += 2) {
+            if (verts[i] < minX) {
+                minX = verts[i];
+            }
+            
+            if (verts[i] > maxX) {
+                maxX = verts[i];
+            }
+            
+            if (verts[i + 1] < minY) {
+                minY = verts[i + 1];
+            }
+            
+            if (verts[i + 1] > maxY) {
+                maxY = verts[i + 1];
+            }
+            
+            rectangle.set(minX, minY, maxX - minX, maxY - minY);
+        }
+        return rectangle;
+    }
+    
+    public static Rectangle localVerticiesToAABB(Rectangle rectangle, Slot slot) {
+        if (slot.getAttachment() != null && slot.getAttachment() instanceof VertexAttachment) {
+            VertexAttachment vertexAttachment = (VertexAttachment) slot.getAttachment();
+            float[] worldVerts = new float[vertexAttachment.getVertices().length];
+            vertexAttachment.computeWorldVertices(slot, 0, vertexAttachment.getWorldVerticesLength(), worldVerts, 0, 2);
+            return worldVerticiesToAABB(worldVerts, rectangle);
+        } else {
+            return null;
+        }
+    }
 }

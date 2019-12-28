@@ -1,11 +1,18 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.esotericsoftware.spine.Skeleton;
+import com.esotericsoftware.spine.Slot;
 import com.ray3k.template.Core.Binding;
+import com.ray3k.template.Utils;
 import com.ray3k.template.screens.GameScreen;
 
 public class PlayerEntity extends Entity {
@@ -16,11 +23,18 @@ public class PlayerEntity extends Entity {
     public Mode mode;
     public int attackQueue;
     public static final String[][] combos = {{"combo1-1", "combo1-2", "combo1-3", "combo1-4"}, {"combo2-1", "combo2-2", "combo2-3", "combo2-4"}, {"combo3-1", "combo3-2", "combo3-3", "combo3-4"}};
+    public static final float[] damages = {15f, 15f, 30f, 40f};
     public int attackIndex;
     public int comboIndex;
     public static final float WALK_H_SPEED = 500f;
     public static final float WALK_V_SPEED = 250f;
     private GameScreen gameScreen;
+    public Slot bboxSlot;
+    public Slot attackBbboxSlot;
+    public Rectangle bboxRectangle = new Rectangle();
+    public Rectangle attackBboxRectangle = new Rectangle();
+    public float health;
+    public Array<EnemyEntity> enemiesHit;
     
     @Override
     public void create() {
@@ -36,12 +50,22 @@ public class PlayerEntity extends Entity {
         
         animationState.addListener(new AnimationStateAdapter() {
             @Override
+            public void start(TrackEntry entry) {
+                animationStart(entry);
+            }
+    
+            @Override
             public void complete(TrackEntry entry) {
                 animationComplete(entry);
             }
         });
         
         mode = Mode.STAND;
+        bboxSlot = skeleton.findSlot("bbox");
+        attackBbboxSlot = skeleton.findSlot("attack-bbox");
+        health = 100f;
+        
+        enemiesHit = new Array<>();
     }
     
     @Override
@@ -55,6 +79,9 @@ public class PlayerEntity extends Entity {
             attackQueue++;
         }
         
+        Utils.localVerticiesToAABB(bboxRectangle, bboxSlot);
+        Utils.localVerticiesToAABB(attackBboxRectangle, attackBbboxSlot);
+        
         movementControls(delta);
     
         attackControls(delta);
@@ -62,6 +89,7 @@ public class PlayerEntity extends Entity {
         movement(delta);
         
         depth = GameScreen.CHARACTER_MIN_DEPTH + (int) y;
+        
     }
     
     public void movementControls(float delta) {
@@ -92,10 +120,30 @@ public class PlayerEntity extends Entity {
                     attackIndex = 0;
                     animationState.setAnimation(0, combos[comboIndex][attackIndex], false);
                     attackQueue = 0;
+                    enemiesHit.clear();
                     setSpeed(0);
                 }
                 break;
+            case ATTACK:
+                if (attackBbboxSlot.getAttachment() != null) {
+                    attackEnemies(delta);
+                }
+                break;
         }
+    }
+    
+    public void attackEnemies(float delta) {
+        for (Entity entity : gameScreen.entityController.entities) {
+            if (entity instanceof EnemyEntity) {
+                EnemyEntity enemy = (EnemyEntity) entity;
+                if (!enemiesHit.contains(enemy, true) && Intersector.overlaps(enemy.bboxRectangle, attackBboxRectangle)) {
+                    enemy.hurt(damages[attackIndex]);
+                    enemiesHit.add(enemy);
+                    gameScreen.assetManager.get("sfx/kick.mp3", Sound.class).play();
+                }
+            }
+        }
+        
     }
     
     public void movement(float delta) {
@@ -123,12 +171,21 @@ public class PlayerEntity extends Entity {
         }
     }
     
+    private void animationStart(TrackEntry entry) {
+        switch (mode) {
+            case ATTACK:
+                gameScreen.assetManager.get("sfx/whoosh.mp3", Sound.class).play();
+                break;
+        }
+    }
+    
     private void animationComplete(TrackEntry entry) {
         switch (mode) {
             case ATTACK:
                 if (attackQueue > 0 && attackIndex + 1< combos[comboIndex].length) {
                     attackQueue--;
                     attackIndex++;
+                    enemiesHit.clear();
                     animationState.setAnimation(0, combos[comboIndex][attackIndex], false);
                 } else {
                     mode = Mode.STAND;
@@ -139,7 +196,8 @@ public class PlayerEntity extends Entity {
     
     @Override
     public void draw(float delta) {
-    
+        gameScreen.shapeDrawer.filledRectangle(bboxRectangle, new Color(0, 1, 0, .5f));
+        if (attackBbboxSlot.getAttachment() != null) gameScreen.shapeDrawer.filledRectangle(attackBboxRectangle, new Color(1, 0, 0, .5f));
     }
     
     @Override

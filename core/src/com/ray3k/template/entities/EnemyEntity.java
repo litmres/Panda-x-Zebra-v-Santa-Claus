@@ -1,5 +1,6 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
@@ -16,9 +17,10 @@ public class EnemyEntity extends Entity {
     public static final float BORDER_V = 150;
     private GameScreen gameScreen;
     private PlayerEntity player;
-    
+    public float attackTimer;
     public Mode mode;
-    
+    public static final float ATTACK_TIMER_MIN = .25f;
+    public static final float ATTACK_TIMER_MAX = 1f;
     
     @Override
     public void create() {
@@ -40,9 +42,7 @@ public class EnemyEntity extends Entity {
         });
     
         mode = Mode.WALK;
-    }
-    
-    private void animationComplete(TrackEntry entry) {
+        attackTimer = MathUtils.random(ATTACK_TIMER_MIN, ATTACK_TIMER_MAX);
     }
     
     @Override
@@ -101,13 +101,35 @@ public class EnemyEntity extends Entity {
                 if (x >= player.x - BORDER_H && x <= player.x + BORDER_H && y >= player.y - BORDER_V && y <= player.y + BORDER_V) {
                     mode = Mode.STAND;
                     animationState.setAnimation(0, "stand", true);
+                    attackTimer = MathUtils.random(ATTACK_TIMER_MIN, ATTACK_TIMER_MAX);
                 }
                 break;
         }
     }
     
     private void attack(float delta) {
+        switch (mode) {
+            case STAND:
+                attackTimer -= delta;
+                if (attackTimer <= 0) {
+                    mode = Mode.ATTACK;
+                    animationState.setAnimation(0, "combo1-1", false);
+                }
+                break;
+            case ATTACK:
+                
+                break;
+        }
+    }
     
+    private void animationComplete(TrackEntry entry) {
+        switch (mode) {
+            case ATTACK:
+                mode = Mode.STAND;
+                animationState.setAnimation(0, "stand", false);
+                attackTimer = MathUtils.random(ATTACK_TIMER_MIN, ATTACK_TIMER_MAX);
+                break;
+        }
     }
     
     @Override

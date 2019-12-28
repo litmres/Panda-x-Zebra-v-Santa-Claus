@@ -13,6 +13,7 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Slot;
 import com.ray3k.template.Core.Binding;
 import com.ray3k.template.Utils;
+import com.ray3k.template.entities.EnemyEntity.Mode;
 import com.ray3k.template.screens.GameScreen;
 
 public class PlayerEntity extends Entity {
@@ -182,6 +183,7 @@ public class PlayerEntity extends Entity {
     private void animationComplete(TrackEntry entry) {
         switch (mode) {
             case ATTACK:
+            case HURT:
                 if (attackQueue > 0 && attackIndex + 1< combos[comboIndex].length) {
                     attackQueue--;
                     attackIndex++;
@@ -191,6 +193,26 @@ public class PlayerEntity extends Entity {
                     mode = Mode.STAND;
                     animationState.setAnimation(0, "stand", true);
                 }
+                break;
+            case DEAD:
+                destroy = true;
+        }
+    }
+    
+    public void hurt(float damage) {
+        if (mode != Mode.DEAD) {
+            health -= damage;
+            if (health <= 0) {
+                gameScreen.assetManager.get("sfx/die.mp3", Sound.class).play();
+                mode = Mode.DEAD;
+                animationState.setAnimation(0, "die", false);
+                setSpeed(0);
+            } else {
+                GameScreen.hurtSounds.random().play();
+                mode = Mode.HURT;
+                animationState.setAnimation(0, "hurt-1", false);
+                setSpeed(0);
+            }
         }
     }
     

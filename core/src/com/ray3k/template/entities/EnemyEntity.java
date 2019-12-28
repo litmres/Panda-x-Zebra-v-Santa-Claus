@@ -2,6 +2,7 @@ package com.ray3k.template.entities;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.esotericsoftware.spine.AnimationState;
@@ -32,6 +33,7 @@ public class EnemyEntity extends Entity {
     public Rectangle attackBboxRectangle = new Rectangle();
     public static final float DAMAGE = 30f;
     public float health;
+    public boolean hitPlayer;
     
     @Override
     public void create() {
@@ -132,11 +134,22 @@ public class EnemyEntity extends Entity {
                 if (attackTimer <= 0) {
                     mode = Mode.ATTACK;
                     animationState.setAnimation(0, "combo1-1", false);
+                    hitPlayer = false;
                 }
                 break;
             case ATTACK:
-                
+                if (attackBbboxSlot.getAttachment() != null) {
+                    attackPlayer(delta);
+                }
                 break;
+        }
+    }
+    
+    private void attackPlayer(float delta) {
+        if (!player.destroy && !hitPlayer && Intersector.overlaps(player.bboxRectangle, attackBboxRectangle)) {
+            player.hurt(DAMAGE);
+            hitPlayer = true;
+            gameScreen.assetManager.get("sfx/kick.mp3", Sound.class).play();
         }
     }
     

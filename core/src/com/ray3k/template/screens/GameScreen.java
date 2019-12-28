@@ -18,6 +18,7 @@ import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.SkeletonData;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
+import com.ray3k.template.entities.EnemyEntity;
 import com.ray3k.template.entities.EntityController;
 import com.ray3k.template.entities.PlayerEntity;
 import space.earlygrey.shapedrawer.ShapeDrawer;
@@ -37,9 +38,10 @@ public class GameScreen extends JamScreen {
     private EarthquakeEffect vfxEffect;
     public static SkeletonData characterSkeletonData;
     public static AnimationStateData characterAnimationStateData;
+    public static final int CHARACTER_MIN_DEPTH = 1000;
     
     public GameScreen(Action action) {
-        BG_COLOR.set(Color.WHITE);
+        BG_COLOR.set(Color.LIGHT_GRAY);
         
         gameScreen = this;
         this.action = action;
@@ -65,10 +67,14 @@ public class GameScreen extends JamScreen {
         Gdx.input.setInputProcessor(inputMultiplexer);
         
         camera = new OrthographicCamera();
+        camera.position.set(512, 288, 0);
         viewport = new FitViewport(1024, 576, camera);
         
         entityController = new EntityController();
-        entityController.add(new PlayerEntity());
+        PlayerEntity player = new PlayerEntity();
+        player.setPosition(512, 288);
+        entityController.add(player);
+        entityController.add(new EnemyEntity());
     }
     
     @Override

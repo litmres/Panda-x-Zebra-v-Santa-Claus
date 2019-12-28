@@ -9,6 +9,7 @@ import com.ray3k.template.Core.Binding;
 import com.ray3k.template.screens.GameScreen;
 
 public class PlayerEntity extends Entity {
+    public static PlayerEntity player;
     public enum Mode {
         STAND, WALK, HURT, ATTACK, DEAD
     }
@@ -23,6 +24,7 @@ public class PlayerEntity extends Entity {
     
     @Override
     public void create() {
+        player = this;
         gameScreen = GameScreen.gameScreen;
         
         skeleton = new Skeleton(GameScreen.characterSkeletonData);
@@ -58,6 +60,8 @@ public class PlayerEntity extends Entity {
         attackControls(delta);
         
         movement(delta);
+        
+        depth = GameScreen.CHARACTER_MIN_DEPTH + (int) y;
     }
     
     public void movementControls(float delta) {

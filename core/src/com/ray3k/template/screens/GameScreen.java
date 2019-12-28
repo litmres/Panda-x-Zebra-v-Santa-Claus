@@ -68,9 +68,7 @@ public class GameScreen extends JamScreen {
         viewport = new FitViewport(1024, 576, camera);
         
         entityController = new EntityController();
-        PlayerEntity playerEntity = new PlayerEntity();
-        entityController.add(playerEntity);
-        playerEntity.skeleton.setSkin(core.characterSkin.skin);
+        entityController.add(new PlayerEntity());
     }
     
     @Override

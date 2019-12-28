@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "IZmzNY56lKwSEaRByMO69iyuxDY",
+	"hash": "TYmM6fIVBEq26/pfsgc70XiNZ+Q",
 	"spine": "3.8.79",
-	"x": -175.06,
-	"y": -33.21,
-	"width": 461.45,
-	"height": 677.68,
+	"x": -139.56,
+	"y": -32.71,
+	"width": 425.95,
+	"height": 600.44,
 	"images": "",
 	"audio": ""
 },
@@ -25,7 +25,9 @@
 	{ "name": "lower-leg-left", "parent": "upper-leg-left", "length": 63.81, "rotation": 5.54, "x": 113.88, "y": 0.85 },
 	{ "name": "foot-left", "parent": "lower-leg-left", "length": 119.43, "rotation": 52.8, "x": 52.11, "y": 0.98 },
 	{ "name": "swoosh1", "parent": "root" },
-	{ "name": "swoosh2", "parent": "root" }
+	{ "name": "swoosh2", "parent": "root" },
+	{ "name": "bbox", "parent": "root", "length": 178.94, "rotation": 0.91, "x": 18.08, "y": 291.68 },
+	{ "name": "attack-bbox", "parent": "root", "length": 93.76, "rotation": 1.74, "x": 221.14, "y": 304.46 }
 ],
 "slots": [
 	{ "name": "weapon", "bone": "lower-arm-left" },
@@ -36,12 +38,29 @@
 	{ "name": "head", "bone": "head", "attachment": "head-se" },
 	{ "name": "fist-right", "bone": "lower-arm-right", "attachment": "fist-right" },
 	{ "name": "swoosh", "bone": "swoosh1" },
-	{ "name": "swoosh2", "bone": "swoosh2" }
+	{ "name": "swoosh2", "bone": "swoosh2" },
+	{ "name": "bbox", "bone": "bbox", "attachment": "bbox" },
+	{ "name": "attack-bbox", "bone": "attack-bbox" }
 ],
 "skins": [
 	{
 		"name": "default",
 		"attachments": {
+			"attack-bbox": {
+				"attack-bbox": {
+					"type": "boundingbox",
+					"vertexCount": 4,
+					"vertices": [ -207.01, 60.26, -211.83, -51.83, 62.11, -60.13, 66.92, 51.96 ],
+					"color": "f00000ff"
+				}
+			},
+			"bbox": {
+				"bbox": {
+					"type": "boundingbox",
+					"vertexCount": 4,
+					"vertices": [ -178.65, -71.01, -166.25, 83.59, 163.14, 78.36, 164.97, -75.05 ]
+				}
+			},
 			"swoosh": {
 				"muzzle-flash": { "y": 0.5, "width": 362, "height": 199 },
 				"swoosh-1": { "y": 0.5, "width": 570, "height": 131 },
@@ -397,6 +416,12 @@
 "animations": {
 	"combo1-1": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.1333, "color": "ffffff00" },
@@ -490,6 +515,11 @@
 				"scale": [
 					{ "time": 0.1333, "x": 0 },
 					{ "time": 0.1667, "x": 0.559 }
+				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 320.92, "y": -38.34 }
 				]
 			}
 		},
@@ -504,6 +534,12 @@
 	},
 	"combo1-2": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.1333, "color": "ffffff00" },
@@ -598,6 +634,11 @@
 					{ "time": 0.1333, "x": 0 },
 					{ "time": 0.1667, "x": 0.559 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 320.92, "y": -38.34 }
+				]
 			}
 		},
 		"drawOrder": [
@@ -611,6 +652,12 @@
 	},
 	"combo1-3": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1333, "name": "attack-bbox" },
+					{ "time": 0.2, "name": null }
+				]
+			},
 			"head": {
 				"attachment": [
 					{ "time": 0.1333, "name": "head-e" },
@@ -725,11 +772,22 @@
 					{ "time": 0.0667, "x": 1.867, "y": 0.364 },
 					{ "time": 0.2, "x": 0.965, "y": 0.364 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1333, "x": 214.42, "y": -48.28 }
+				]
 			}
 		}
 	},
 	"combo1-4": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.2333, "name": "attack-bbox" },
+					{ "time": 0.3, "name": null }
+				]
+			},
 			"fist-left": {
 				"attachment": [
 					{ "time": 0.2667, "name": "fist-left2" },
@@ -881,6 +939,11 @@
 					{ "time": 0.2667, "x": -1.22, "y": 0.315 },
 					{ "time": 0.4, "x": -1.429, "y": 0.436 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.2333, "x": 295.36, "y": 17.04 }
+				]
 			}
 		},
 		"drawOrder": [
@@ -902,6 +965,12 @@
 	},
 	"combo2-1": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.1333, "color": "ffffff00" },
@@ -996,6 +1065,11 @@
 					{ "time": 0.1333, "x": 0 },
 					{ "time": 0.1667, "x": 0.559 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 320.92, "y": -38.34 }
+				]
 			}
 		},
 		"drawOrder": [
@@ -1009,6 +1083,12 @@
 	},
 	"combo2-2": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"head": {
 				"attachment": [
 					{ "time": 0.1333, "name": "head-e" },
@@ -1153,12 +1233,23 @@
 				"scale": [
 					{ "time": 0.1, "x": 0.168, "y": 0.644 },
 					{ "time": 0.1667, "y": 2.526 }
+				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 120.7, "y": -42.6 }
 				]
 			}
 		}
 	},
 	"combo2-3": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"head": {
 				"attachment": [
 					{ "time": 0.1333, "name": "head-e" },
@@ -1304,11 +1395,22 @@
 					{ "time": 0.1, "x": 0.168, "y": 0.644 },
 					{ "time": 0.1667, "y": 2.526 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 120.7, "y": -42.6 }
+				]
 			}
 		}
 	},
 	"combo2-4": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1333, "name": "attack-bbox" },
+					{ "time": 0.3333, "name": null }
+				]
+			},
 			"fist-left": {
 				"attachment": [
 					{ "time": 0.3, "name": "fist-left2" },
@@ -1498,6 +1600,34 @@
 				]
 			}
 		},
+		"deform": {
+			"default": {
+				"attack-bbox": {
+					"attack-bbox": [
+						{
+							"time": 0.1333,
+							"vertices": [ 78.06462, -2.36469, 78.06462, -2.36469, 78.06462, -2.36469, 78.06462, -2.36469 ]
+						},
+						{
+							"time": 0.1667,
+							"vertices": [ -96.51477, 2.92645, -96.51477, 2.92645, -96.51477, 2.92645, -96.51477, 2.92645 ]
+						},
+						{
+							"time": 0.2333,
+							"vertices": [ -180.25594, 5.46521, -180.25594, 5.46521, -180.25594, 5.46521, -180.25594, 5.46521 ]
+						},
+						{
+							"time": 0.2667,
+							"vertices": [ -256.9005, 7.78839, -256.9005, 7.78839, -256.9005, 7.78839, -256.9005, 7.78839 ]
+						},
+						{
+							"time": 0.3,
+							"vertices": [ -296.64212, 8.99295, -296.64212, 8.99295, -296.64212, 8.99295, -296.64212, 8.99295 ]
+						}
+					]
+				}
+			}
+		},
 		"drawOrder": [
 			{
 				"time": 0.1333,
@@ -1524,6 +1654,12 @@
 	},
 	"combo3-1": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.1333, "color": "ffffff00" },
@@ -1618,6 +1754,11 @@
 					{ "time": 0.1333, "x": 0 },
 					{ "time": 0.1667, "x": 0.559 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 320.92, "y": -38.34 }
+				]
 			}
 		},
 		"drawOrder": [
@@ -1631,6 +1772,12 @@
 	},
 	"combo3-2": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1333, "name": "attack-bbox" },
+					{ "time": 0.2, "name": null }
+				]
+			},
 			"head": {
 				"attachment": [
 					{ "time": 0.1333, "name": "head-e" },
@@ -1745,11 +1892,22 @@
 					{ "time": 0.0667, "x": 1.867, "y": 0.364 },
 					{ "time": 0.2, "x": 0.965, "y": 0.364 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1333, "x": 214.42, "y": -48.28 }
+				]
 			}
 		}
 	},
 	"combo3-3": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.1667, "name": "attack-bbox" },
+					{ "time": 0.2333, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.1333, "color": "ffffff00" },
@@ -1844,6 +2002,11 @@
 					{ "time": 0.1333, "x": 0 },
 					{ "time": 0.1667, "x": 0.559 }
 				]
+			},
+			"attack-bbox": {
+				"translate": [
+					{ "time": 0.1667, "x": 320.92, "y": -38.34 }
+				]
 			}
 		},
 		"drawOrder": [
@@ -1857,6 +2020,12 @@
 	},
 	"combo3-4": {
 		"slots": {
+			"attack-bbox": {
+				"attachment": [
+					{ "time": 0.2, "name": "attack-bbox" },
+					{ "time": 0.3, "name": null }
+				]
+			},
 			"swoosh": {
 				"color": [
 					{ "time": 0.2667, "color": "ffffffff" },
@@ -2015,6 +2184,18 @@
 					{ "time": 0.2667, "x": 359.86, "y": 48.96 }
 				]
 			}
+		},
+		"deform": {
+			"default": {
+				"attack-bbox": {
+					"attack-bbox": [
+						{
+							"time": 0.2,
+							"vertices": [ 164.64508, -4.98822, 164.64508, -4.98822, 164.64508, -4.98822, 164.64508, -4.98822 ]
+						}
+					]
+				}
+			}
 		}
 	},
 	"die": {
@@ -2120,125 +2301,6 @@
 					{ "time": 0.3333, "angle": -2.39 },
 					{ "time": 0.4333, "angle": -0.25 },
 					{ "time": 0.5, "angle": -0.22 }
-				]
-			}
-		}
-	},
-	"elf-punch": {
-		"slots": {
-			"head": {
-				"attachment": [
-					{ "time": 0.1333, "name": "head-e" },
-					{ "time": 0.3333, "name": "head-se" }
-				]
-			},
-			"swoosh2": {
-				"color": [
-					{ "time": 0.0667, "color": "ffffff00" },
-					{ "time": 0.1333, "color": "ffffffff" },
-					{ "time": 0.2, "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "time": 0.0667, "name": "swoosh-3" }
-				]
-			}
-		},
-		"bones": {
-			"upper-leg-left": {
-				"rotate": [
-					{ "angle": 22.58 }
-				]
-			},
-			"lower-leg-left": {
-				"rotate": [
-					{ "angle": -38.61 }
-				]
-			},
-			"foot-left": {
-				"rotate": [
-					{ "angle": 27 }
-				]
-			},
-			"hip": {
-				"translate": [
-					{ "x": -59.76, "y": -38.03 }
-				]
-			},
-			"body": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 11.95 },
-					{ "time": 0.1333, "angle": -6.42 },
-					{ "time": 0.2667 }
-				],
-				"translate": [
-					{},
-					{ "time": 0.0667, "x": -7.34, "y": -26.93 },
-					{ "time": 0.1333 }
-				]
-			},
-			"upper-arm-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -38.68 },
-					{ "time": 0.1333, "angle": 86.14 },
-					{ "time": 0.2, "angle": 97.72 },
-					{ "time": 0.2667, "angle": 78.53 },
-					{ "time": 0.3333 }
-				],
-				"translate": [
-					{},
-					{ "time": 0.1333, "x": 16.06, "y": -106.51 },
-					{ "time": 0.3333 }
-				]
-			},
-			"lower-arm-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 59.34 },
-					{ "time": 0.1333, "angle": -58.58 },
-					{ "time": 0.2, "angle": -66.85 },
-					{ "time": 0.2667, "angle": -11.66 },
-					{ "time": 0.3333 }
-				],
-				"translate": [
-					{ "time": 0.0667 },
-					{ "time": 0.1333, "x": 43.59, "y": 42.96 },
-					{ "time": 0.2 }
-				],
-				"scale": [
-					{ "time": 0.0667 },
-					{ "time": 0.1333, "x": 1.414, "y": 1.973 },
-					{ "time": 0.2, "y": 0.685 },
-					{ "time": 0.2667, "y": 0.86 },
-					{ "time": 0.3333 }
-				]
-			},
-			"upper-arm-left": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -35.18 },
-					{ "time": 0.1333, "angle": -75.61 },
-					{ "time": 0.3333 }
-				]
-			},
-			"lower-arm-left": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -15.86 },
-					{ "time": 0.1333, "angle": -57.24 },
-					{ "time": 0.3333 }
-				]
-			},
-			"swoosh2": {
-				"translate": [
-					{ "time": 0.0667, "x": 264.38, "y": 159.12 },
-					{ "time": 0.1333, "x": 264.38, "y": 186.05 },
-					{ "time": 0.2, "x": 264.38, "y": 210.53 }
-				],
-				"scale": [
-					{ "time": 0.0667, "x": 1.867, "y": 0.364 },
-					{ "time": 0.2, "x": 0.965, "y": 0.364 }
 				]
 			}
 		}
@@ -2357,168 +2419,6 @@
 					{},
 					{ "time": 0.1667, "angle": 66.1 },
 					{ "time": 0.3333 }
-				]
-			}
-		}
-	},
-	"santa-punch": {
-		"slots": {
-			"swoosh": {
-				"color": [
-					{ "time": 0.2667, "color": "ffffffff" },
-					{ "time": 0.3333, "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "time": 0.2667, "name": "swoosh-4" }
-				]
-			},
-			"swoosh2": {
-				"color": [
-					{ "time": 0.1667, "color": "ffffff00" },
-					{ "time": 0.2, "color": "ffffffff" },
-					{ "time": 0.2667, "color": "ffffff00" }
-				],
-				"attachment": [
-					{ "time": 0.1667, "name": "swoosh-2" }
-				]
-			}
-		},
-		"bones": {
-			"upper-leg-left": {
-				"rotate": [
-					{ "angle": 22.58 },
-					{ "time": 0.0667, "angle": 48.28 },
-					{ "time": 0.1333, "angle": -15.36, "curve": "stepped" },
-					{ "time": 0.2, "angle": -15.36 },
-					{ "time": 0.2667, "angle": 72.17 },
-					{ "time": 0.4, "angle": 22.58 }
-				]
-			},
-			"lower-leg-left": {
-				"rotate": [
-					{ "angle": -38.61 },
-					{ "time": 0.0667, "angle": -84.14 },
-					{ "time": 0.1333, "angle": -5.87, "curve": "stepped" },
-					{ "time": 0.2, "angle": -5.87 },
-					{ "time": 0.2667, "angle": -121.87 },
-					{ "time": 0.4, "angle": -38.61 }
-				]
-			},
-			"foot-left": {
-				"rotate": [
-					{ "angle": 27 },
-					{ "time": 0.0667, "angle": 46.95 },
-					{ "time": 0.1333, "angle": -13.64 },
-					{ "time": 0.2667, "angle": 43.33 },
-					{ "time": 0.4, "angle": 27 }
-				]
-			},
-			"hip": {
-				"translate": [
-					{ "x": -59.76, "y": -38.03 },
-					{ "time": 0.0667, "x": -59.76, "y": -91.89 },
-					{ "time": 0.1333, "x": -59.76, "y": 253.28 },
-					{ "time": 0.2667, "x": -59.76, "y": -104.13 },
-					{ "time": 0.4, "x": -59.76, "y": -38.03 }
-				]
-			},
-			"body": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 12.1 },
-					{ "time": 0.1333, "angle": 26.06 },
-					{ "time": 0.2, "angle": -77.97 },
-					{ "time": 0.2667, "angle": -97.1 },
-					{ "time": 0.4 }
-				]
-			},
-			"upper-arm-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 128.62 },
-					{ "time": 0.1333, "angle": 161.36 },
-					{ "time": 0.2, "angle": -157 },
-					{ "time": 0.2667, "angle": 170.54 },
-					{ "time": 0.4 }
-				]
-			},
-			"lower-arm-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -22.2 },
-					{ "time": 0.1333, "angle": -12.08 },
-					{ "time": 0.2, "angle": -104.37 },
-					{ "time": 0.2667, "angle": -58.84 },
-					{ "time": 0.4 }
-				]
-			},
-			"upper-arm-left": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 67.48 },
-					{ "time": 0.1333, "angle": 94 },
-					{ "time": 0.2, "angle": 135.1 },
-					{ "time": 0.2667, "angle": 115.53 },
-					{ "time": 0.4 }
-				]
-			},
-			"lower-arm-left": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -0.43 },
-					{ "time": 0.1333, "angle": -5.03 },
-					{ "time": 0.2, "angle": -65.28 },
-					{ "time": 0.2667, "angle": -32.92 },
-					{ "time": 0.4 }
-				]
-			},
-			"upper-leg-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 33.16 },
-					{ "time": 0.1333, "angle": -6.09, "curve": "stepped" },
-					{ "time": 0.2, "angle": -6.09 },
-					{ "time": 0.2667, "angle": 59.02 },
-					{ "time": 0.4 }
-				]
-			},
-			"lower-leg-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": -80.57 },
-					{ "time": 0.1333, "angle": -1.52, "curve": "stepped" },
-					{ "time": 0.2, "angle": -1.52 },
-					{ "time": 0.2667, "angle": -84.02 },
-					{ "time": 0.4 }
-				]
-			},
-			"foot-right": {
-				"rotate": [
-					{},
-					{ "time": 0.0667, "angle": 55.26 },
-					{ "time": 0.1333, "angle": -22.2 },
-					{ "time": 0.2667, "angle": 36.21 },
-					{ "time": 0.4 }
-				]
-			},
-			"swoosh2": {
-				"rotate": [
-					{ "time": 0.1667, "angle": -50.01 },
-					{ "time": 0.2, "angle": -90.1 }
-				],
-				"translate": [
-					{ "time": 0.1667, "x": 134.64, "y": 758.88 },
-					{ "time": 0.2, "x": 399.02, "y": 528.77 },
-					{ "time": 0.2667, "x": 399.02, "y": 215.42 }
-				],
-				"scale": [
-					{ "time": 0.1667, "x": 0 },
-					{ "time": 0.2 }
-				]
-			},
-			"swoosh1": {
-				"translate": [
-					{ "time": 0.2667, "x": 359.86, "y": 48.96 }
 				]
 			}
 		}

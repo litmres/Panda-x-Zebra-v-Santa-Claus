@@ -1,3 +1,4 @@
+sfx/brandish.mp3
 sfx/click.mp3
 sfx/die.mp3
 sfx/hurt1.mp3

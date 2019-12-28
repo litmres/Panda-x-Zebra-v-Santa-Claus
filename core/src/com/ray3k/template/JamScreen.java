@@ -132,6 +132,24 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
         return Gdx.input.isKeyPressed(key);
     }
     
+    public boolean isAnyKeyPressed(int... keys) {
+        for (int key : keys) {
+            if (isKeyPressed(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean areAllKeysPressed(int... keys) {
+        for (int key : keys) {
+            if (!isKeyPressed(key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public boolean isButtonPressed(int button) {
         if (button == ANY_BUTTON) {
             return buttonsPressed.contains(Input.Buttons.LEFT) || buttonsPressed.contains(Input.Buttons.RIGHT)
@@ -142,6 +160,24 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
         }
     }
     
+    public boolean isAnyButtonPressed(int... buttons) {
+        for (int button : buttons) {
+            if (isButtonPressed(button)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean areAllButtonsPressed(int... buttons) {
+        for (int button : buttons) {
+            if (!isButtonPressed(button)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public boolean isBindingPressed(Core.Binding binding) {
         if (keyBindings.containsKey(binding)) {
             return isKeyPressed(keyBindings.get(binding, Input.Keys.ANY_KEY));
@@ -150,6 +186,24 @@ public abstract class JamScreen extends ScreenAdapter implements InputProcessor 
         } else {
             return false;
         }
+    }
+    
+    public boolean isAnyBindingPressed(Core.Binding... bindings) {
+        for (Core.Binding binding : bindings) {
+            if (isBindingPressed(binding)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean areAllBindingsPressed(Core.Binding... bindings) {
+        for (Core.Binding binding : bindings) {
+            if (!isBindingPressed(binding)) {
+                return false;
+            }
+        }
+        return true;
     }
     
     public boolean isBindingJustPressed(Core.Binding binding) {

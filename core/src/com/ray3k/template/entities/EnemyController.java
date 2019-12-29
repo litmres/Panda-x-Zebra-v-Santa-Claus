@@ -14,6 +14,7 @@ public class EnemyController extends Entity {
     private EntityController entityController;
     private int enemyMaxCount = 35;
     private int enemyCounter;
+    private float santaDelay = 15f;
     
     @Override
     public void create() {
@@ -33,16 +34,25 @@ public class EnemyController extends Entity {
         if (enemyCounter > 0) {
             enemyTimer -= delta;
             if (enemyTimer < 0) {
+                enemyCounter--;
                 EnemyEntity enemy = new EnemyEntity();
                 enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
                 entityController.add(enemy);
     
                 enemyDelay -= enemyDelayDelta;
                 if (enemyDelay < enemyDelayMin) {
-                    enemyDelay = enemyDelayMin;
+                    if (enemyCounter == 0) enemyDelay = santaDelay;
+                    else enemyDelay = enemyDelayMin;
                 }
     
                 enemyTimer = enemyDelay;
+            }
+        } else if (enemyCounter == 0) {
+            enemyTimer -= delta;
+            if (enemyTimer < 0) {
+                SantaEntity enemy = new SantaEntity();
+                enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
+                entityController.add(enemy);
                 enemyCounter--;
             }
         }

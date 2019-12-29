@@ -21,7 +21,7 @@ public class EnemyEntity extends Entity {
     public static final float WALK_V_SPEED = 100f;
     public static final float BORDER_H = 150;
     public static final float BORDER_V = 50;
-    private GameScreen gameScreen;
+    protected GameScreen gameScreen;
     private PlayerEntity player;
     public float attackTimer;
     public Mode mode;

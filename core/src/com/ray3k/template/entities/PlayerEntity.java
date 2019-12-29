@@ -11,6 +11,7 @@ import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Slot;
+import com.ray3k.template.Core;
 import com.ray3k.template.Core.Binding;
 import com.ray3k.template.Utils;
 import com.ray3k.template.entities.EnemyEntity.Mode;
@@ -137,10 +138,10 @@ public class PlayerEntity extends Entity {
         for (Entity entity : gameScreen.entityController.entities) {
             if (entity instanceof EnemyEntity) {
                 EnemyEntity enemy = (EnemyEntity) entity;
-                if (!enemiesHit.contains(enemy, true) && Intersector.overlaps(enemy.bboxRectangle, attackBboxRectangle)) {
+                if (enemy.health > 0 && !enemiesHit.contains(enemy, true) && Intersector.overlaps(enemy.bboxRectangle, attackBboxRectangle)) {
                     enemy.hurt(damages[attackIndex]);
                     enemiesHit.add(enemy);
-                    gameScreen.assetManager.get("sfx/kick.mp3", Sound.class).play();
+                    gameScreen.assetManager.get("sfx/kick.mp3", Sound.class).play(core.sfx);
                 }
             }
         }
@@ -175,7 +176,7 @@ public class PlayerEntity extends Entity {
     private void animationStart(TrackEntry entry) {
         switch (mode) {
             case ATTACK:
-                gameScreen.assetManager.get("sfx/whoosh.mp3", Sound.class).play();
+                gameScreen.assetManager.get("sfx/whoosh.mp3", Sound.class).play(core.sfx);
                 break;
         }
     }
@@ -203,12 +204,12 @@ public class PlayerEntity extends Entity {
         if (mode != Mode.DEAD) {
             health -= damage;
             if (health <= 0) {
-                gameScreen.assetManager.get("sfx/die.mp3", Sound.class).play();
+                gameScreen.assetManager.get("sfx/die.mp3", Sound.class).play(core.sfx);
                 mode = Mode.DEAD;
                 animationState.setAnimation(0, "die", false);
                 setSpeed(0);
             } else {
-                GameScreen.hurtSounds.random().play();
+                GameScreen.hurtSounds.random().play(core.sfx);
                 mode = Mode.HURT;
                 animationState.setAnimation(0, "hurt-1", false);
                 setSpeed(0);
@@ -218,8 +219,8 @@ public class PlayerEntity extends Entity {
     
     @Override
     public void draw(float delta) {
-        gameScreen.shapeDrawer.filledRectangle(bboxRectangle, new Color(0, 1, 0, .5f));
-        if (attackBbboxSlot.getAttachment() != null) gameScreen.shapeDrawer.filledRectangle(attackBboxRectangle, new Color(1, 0, 0, .5f));
+//        gameScreen.shapeDrawer.filledRectangle(bboxRectangle, new Color(0, 1, 0, .5f));
+//        if (attackBbboxSlot.getAttachment() != null) gameScreen.shapeDrawer.filledRectangle(attackBboxRectangle, new Color(1, 0, 0, .5f));
     }
     
     @Override

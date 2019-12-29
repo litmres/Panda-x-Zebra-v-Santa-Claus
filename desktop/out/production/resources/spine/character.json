@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "Y9Wb7DZS0tQ6REtlH7tDYgNSOCI",
+	"hash": "W0BERnslz4uPlVwQPxhMsUKoOuk",
 	"spine": "3.8.79",
 	"x": -139.56,
 	"y": -32.71,
@@ -40,7 +40,7 @@
 	{ "name": "swoosh", "bone": "swoosh1" },
 	{ "name": "swoosh2", "bone": "swoosh2" },
 	{ "name": "bbox", "bone": "bbox", "attachment": "bbox" },
-	{ "name": "attack-bbox", "bone": "attack-bbox" }
+	{ "name": "attack-bbox", "bone": "attack-bbox", "attachment": "attack-bbox" }
 ],
 "skins": [
 	{
@@ -50,7 +50,7 @@
 				"attack-bbox": {
 					"type": "boundingbox",
 					"vertexCount": 4,
-					"vertices": [ -375.91, 65.38, -384.99, -46.58, 62.11, -60.13, 66.92, 51.96 ],
+					"vertices": [ -214.5, 67.1, -219.45, -39.69, 62.11, -60.13, 66.92, 51.96 ],
 					"color": "f00000ff"
 				}
 			},
@@ -418,7 +418,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -536,7 +535,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -654,7 +652,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1333, "name": "attack-bbox" },
 					{ "time": 0.2, "name": null }
 				]
 			},
@@ -784,7 +781,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.2333, "name": "attack-bbox" },
 					{ "time": 0.3, "name": null }
 				]
 			},
@@ -967,7 +963,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -1085,7 +1080,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -1246,7 +1240,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -1407,7 +1400,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1333, "name": "attack-bbox" },
 					{ "time": 0.3333, "name": null }
 				]
 			},
@@ -1656,7 +1648,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -1774,7 +1765,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1333, "name": "attack-bbox" },
 					{ "time": 0.2, "name": null }
 				]
 			},
@@ -1904,7 +1894,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.1667, "name": "attack-bbox" },
 					{ "time": 0.2333, "name": null }
 				]
 			},
@@ -2022,7 +2011,6 @@
 		"slots": {
 			"attack-bbox": {
 				"attachment": [
-					{ "time": 0.2, "name": "attack-bbox" },
 					{ "time": 0.3, "name": null }
 				]
 			},
@@ -2200,12 +2188,52 @@
 	},
 	"die": {
 		"slots": {
+			"body": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
+			"fist-left": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
+			"fist-right": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
+			"foot-left": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
+			"foot-right": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				]
+			},
 			"head": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
+				],
 				"attachment": [
 					{ "time": 0.0667, "name": "head-e" },
 					{ "time": 0.5667, "name": "head-se" },
 					{ "time": 0.6, "name": "head-s" },
 					{ "time": 0.6333, "name": "head-sw" }
+				]
+			},
+			"weapon": {
+				"color": [
+					{ "time": 0.6333, "color": "ffffffff" },
+					{ "time": 1.6667, "color": "ffffff00" }
 				]
 			}
 		},
@@ -2301,6 +2329,108 @@
 					{ "time": 0.3333, "angle": -2.39 },
 					{ "time": 0.4333, "angle": -0.25 },
 					{ "time": 0.5, "angle": -0.22 }
+				]
+			}
+		}
+	},
+	"drop": {
+		"slots": {
+			"body": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
+			"fist-left": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
+			"fist-right": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
+			"foot-left": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
+			"foot-right": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			},
+			"head": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1333, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"upper-leg-left": {
+				"rotate": [
+					{ "angle": 22.58, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 22.58 },
+					{ "time": 0.4333, "angle": 55.11 },
+					{ "time": 0.6667, "angle": 22.58 }
+				]
+			},
+			"lower-leg-left": {
+				"rotate": [
+					{ "angle": -38.61, "curve": "stepped" },
+					{ "time": 0.2333, "angle": -38.61 },
+					{ "time": 0.4333, "angle": -99.59 },
+					{ "time": 0.6667, "angle": -38.61 }
+				]
+			},
+			"foot-left": {
+				"rotate": [
+					{ "angle": 27, "curve": "stepped" },
+					{ "time": 0.2333, "angle": 27 },
+					{ "time": 0.4333, "angle": 44.82 },
+					{ "time": 0.6667, "angle": 27 }
+				]
+			},
+			"hip": {
+				"translate": [
+					{ "x": -59.76, "y": 977.25 },
+					{ "time": 0.2333, "x": -59.76, "y": -38.03 },
+					{ "time": 0.4333, "x": -59.76, "y": -99.58 },
+					{ "time": 0.6667, "x": -59.76, "y": -38.03 }
+				]
+			},
+			"body": {
+				"rotate": [
+					{ "time": 0.2333 },
+					{ "time": 0.4333, "angle": -21.62 },
+					{ "time": 0.6667 }
+				]
+			},
+			"upper-leg-right": {
+				"rotate": [
+					{ "time": 0.2333 },
+					{ "time": 0.4333, "angle": 56.1 },
+					{ "time": 0.6667 }
+				]
+			},
+			"lower-leg-right": {
+				"rotate": [
+					{ "time": 0.2333 },
+					{ "time": 0.4333, "angle": -107.32 },
+					{ "time": 0.6667 }
+				]
+			},
+			"foot-right": {
+				"rotate": [
+					{ "time": 0.2333 },
+					{ "time": 0.4333, "angle": 45.71 },
+					{ "time": 0.6667 }
 				]
 			}
 		}

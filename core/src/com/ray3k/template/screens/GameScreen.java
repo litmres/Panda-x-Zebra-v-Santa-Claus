@@ -20,6 +20,7 @@ import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.SkeletonData;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
+import com.ray3k.template.entities.EnemyController;
 import com.ray3k.template.entities.EnemyEntity;
 import com.ray3k.template.entities.EntityController;
 import com.ray3k.template.entities.PlayerEntity;
@@ -77,7 +78,8 @@ public class GameScreen extends JamScreen {
         PlayerEntity player = new PlayerEntity();
         player.setPosition(512, 288);
         entityController.add(player);
-        entityController.add(new EnemyEntity());
+        
+        entityController.add(new EnemyController());
         
         hurtSounds = new Array<>();
         hurtSounds.add(assetManager.get("sfx/hurt1.mp3"));

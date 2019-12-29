@@ -12,12 +12,15 @@ public class EnemyController extends Entity {
     public float enemyTimer;
     private GameScreen gameScreen;
     private EntityController entityController;
+    private int enemyMaxCount = 35;
+    private int enemyCounter;
     
     @Override
     public void create() {
         gameScreen = GameScreen.gameScreen;
         entityController = gameScreen.entityController;
         enemyTimer = enemyDelayInitial;
+        enemyCounter = enemyMaxCount;
     }
     
     @Override
@@ -27,18 +30,21 @@ public class EnemyController extends Entity {
     
     @Override
     public void act(float delta) {
-        enemyTimer -= delta;
-        if (enemyTimer < 0) {
-            EnemyEntity enemy = new EnemyEntity();
-            enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
-            entityController.add(enemy);
-            
-            enemyDelay -= enemyDelayDelta;
-            if (enemyDelay < enemyDelayMin) {
-                enemyDelay = enemyDelayMin;
+        if (enemyCounter > 0) {
+            enemyTimer -= delta;
+            if (enemyTimer < 0) {
+                EnemyEntity enemy = new EnemyEntity();
+                enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
+                entityController.add(enemy);
+    
+                enemyDelay -= enemyDelayDelta;
+                if (enemyDelay < enemyDelayMin) {
+                    enemyDelay = enemyDelayMin;
+                }
+    
+                enemyTimer = enemyDelay;
+                enemyCounter--;
             }
-            
-            enemyTimer = enemyDelay;
         }
     }
     

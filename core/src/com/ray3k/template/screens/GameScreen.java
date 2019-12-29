@@ -22,7 +22,6 @@ import com.esotericsoftware.spine.SkeletonData;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
 import com.ray3k.template.entities.EnemyController;
-import com.ray3k.template.entities.EnemyEntity;
 import com.ray3k.template.entities.EntityController;
 import com.ray3k.template.entities.PlayerEntity;
 import space.earlygrey.shapedrawer.ShapeDrawer;
@@ -136,5 +135,7 @@ public class GameScreen extends JamScreen {
     @Override
     public void hide() {
         vfxEffect.dispose();
+        Music music = assetManager.get("bgm/game.mp3");
+        music.stop();
     }
 }

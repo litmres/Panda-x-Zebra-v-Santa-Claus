@@ -51,7 +51,7 @@ public class GameScreen extends JamScreen {
     public ShapeDrawer shapeDrawer;
     public EntityController entityController;
     private VfxManager vfxManager;
-    private EarthquakeEffect vfxEffect;
+//    private EarthquakeEffect vfxEffect;
     public static SkeletonData characterSkeletonData;
     public static AnimationStateData characterAnimationStateData;
     public static final int CHARACTER_MIN_DEPTH = 1000;
@@ -68,11 +68,11 @@ public class GameScreen extends JamScreen {
         assetManager = core.assetManager;
         batch = core.batch;
         vfxManager = core.vfxManager;
-        vfxEffect = new EarthquakeEffect();
-        vfxManager.addEffect(vfxEffect);
-        vfxEffect.setSpeed(0);
-        vfxEffect.setAmount(0);
-        vfxEffect.rebind();
+//        vfxEffect = new EarthquakeEffect();
+//        vfxManager.addEffect(vfxEffect);
+//        vfxEffect.setSpeed(0);
+//        vfxEffect.setAmount(0);
+//        vfxEffect.rebind();
     
         Music music = assetManager.get("bgm/game.mp3");
         music.setLooping(true);
@@ -144,7 +144,7 @@ public class GameScreen extends JamScreen {
     public void act(float delta) {
         entityController.act(delta);
         stage.act(delta);
-        vfxEffect.update(delta);
+//        vfxEffect.update(delta);
     }
     
     @Override
@@ -177,12 +177,12 @@ public class GameScreen extends JamScreen {
     
     @Override
     public void dispose() {
-        vfxEffect.dispose();
+//        vfxEffect.dispose();
     }
     
     @Override
     public void hide() {
-        vfxEffect.dispose();
+//        vfxEffect.dispose();
         Music music = assetManager.get("bgm/game.mp3");
         music.stop();
     }

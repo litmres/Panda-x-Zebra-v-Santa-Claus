@@ -1,10 +1,10 @@
 {
 "skeleton": {
-	"hash": "uDbk+ku3Xsa5H7EUF1OXCwaeGm8",
+	"hash": "/W8a/J362K2GXloItxp1LFWayA0",
 	"spine": "3.8.79",
-	"x": -241.65,
-	"width": 1265.65,
-	"height": 807.42,
+	"x": -203.38,
+	"width": 1227.38,
+	"height": 797.64,
 	"images": "",
 	"audio": ""
 },
@@ -54,7 +54,7 @@
 				"libgdx-l-burned": { "x": 21.84, "y": -0.48, "rotation": -90, "width": 20, "height": 60 }
 			},
 			"libgdx-laser": {
-				"libgdx-laser": { "x": -63.43, "y": 249.98, "rotation": -74.4, "width": 521, "height": 88 }
+				"libgdx-laser": { "x": -63.43, "y": 249.98, "scaleY": 0.1023, "rotation": -74.4, "width": 521, "height": 88 }
 			},
 			"libgdx-x": {
 				"libgdx-x": { "x": 2.41, "y": 0.23, "rotation": 1.21, "width": 81, "height": 60 },

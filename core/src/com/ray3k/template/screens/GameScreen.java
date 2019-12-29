@@ -3,6 +3,7 @@ package com.ray3k.template.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -58,6 +59,11 @@ public class GameScreen extends JamScreen {
         vfxEffect.setSpeed(0);
         vfxEffect.setAmount(0);
         vfxEffect.rebind();
+    
+        Music music = assetManager.get("bgm/game.mp3");
+        music.setLooping(true);
+        music.setVolume(core.bgm);
+        music.play();
         
         characterSkeletonData = assetManager.get("spine/character.json");
         characterAnimationStateData = new AnimationStateData(characterSkeletonData);

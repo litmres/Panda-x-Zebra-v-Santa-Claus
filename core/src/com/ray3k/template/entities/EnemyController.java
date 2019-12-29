@@ -1,6 +1,5 @@
 package com.ray3k.template.entities;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.ray3k.template.screens.GameScreen;
 
@@ -36,7 +35,7 @@ public class EnemyController extends Entity {
             if (enemyTimer < 0) {
                 enemyCounter--;
                 EnemyEntity enemy = new EnemyEntity();
-                enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
+                enemy.setPosition(MathUtils.random(gameScreen.viewport.getWorldWidth()), MathUtils.random(gameScreen.viewport.getWorldHeight() - 250f));
                 entityController.add(enemy);
     
                 enemyDelay -= enemyDelayDelta;
@@ -51,7 +50,7 @@ public class EnemyController extends Entity {
             enemyTimer -= delta;
             if (enemyTimer < 0) {
                 SantaEntity enemy = new SantaEntity();
-                enemy.setPosition(MathUtils.random(Gdx.graphics.getWidth()), MathUtils.random(Gdx.graphics.getHeight()));
+                enemy.setPosition(MathUtils.random(gameScreen.viewport.getWorldWidth()), MathUtils.random(gameScreen.viewport.getWorldHeight()));
                 entityController.add(enemy);
                 enemyCounter--;
             }

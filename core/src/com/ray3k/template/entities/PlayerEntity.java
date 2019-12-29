@@ -38,7 +38,7 @@ public class PlayerEntity extends Entity {
     public static final float LEVEL_BORDER_LEFT = 100f;
     public static final float LEVEL_BORDER_RIGHT = 100f;
     public static final float LEVEL_BORDER_BOTTOM = 10f;
-    public static final float LEVEL_BORDER_TOP = 200f;
+    public static final float LEVEL_BORDER_TOP = 250f;
     
     @Override
     public void create() {
@@ -175,16 +175,16 @@ public class PlayerEntity extends Entity {
                 if (x < LEVEL_BORDER_LEFT) {
                     x = LEVEL_BORDER_LEFT;
                     deltaX = 0;
-                } else if (x > Gdx.graphics.getWidth() - LEVEL_BORDER_RIGHT) {
-                    x = Gdx.graphics.getWidth() - LEVEL_BORDER_RIGHT;
+                } else if (x > gameScreen.viewport.getWorldWidth() - LEVEL_BORDER_RIGHT) {
+                    x = gameScreen.viewport.getWorldWidth() - LEVEL_BORDER_RIGHT;
                     deltaX = 0;
                 }
                 
                 if (y < LEVEL_BORDER_BOTTOM) {
                     y = LEVEL_BORDER_BOTTOM;
                     deltaY = 0;
-                } else if (y > Gdx.graphics.getHeight() - LEVEL_BORDER_TOP) {
-                    y = Gdx.graphics.getHeight() - LEVEL_BORDER_TOP;
+                } else if (y > gameScreen.viewport.getWorldHeight() - LEVEL_BORDER_TOP) {
+                    y = gameScreen.viewport.getWorldHeight() - LEVEL_BORDER_TOP;
                     deltaY = 0;
                 }
                 break;

@@ -111,7 +111,7 @@ public class OgmoReader {
                     for (JsonValue decal : child.get("decals").iterator()) {
                         for (OgmoListener ogmoListener : layerListeners) {
                             ogmoListener.decal(decal.getInt("x"), levelHeight - decal.getInt("y"),
-                                    decal.getInt("scaleX", 1), decal.getInt("scaleY", 1),
+                                    decal.getFloat("scaleX", 1f), decal.getFloat("scaleY", 1f),
                                     (360 - decal.getInt("rotation", 0)) % 360, decal.getString("texture"), folder);
                         }
                     }
@@ -273,7 +273,7 @@ public class OgmoReader {
          * @param texture
          * @param folder
          */
-        void decal(int x, int y, int scaleX, int scaleY, int rotation, String texture, String folder);
+        void decal(int x, int y, float scaleX, float scaleY, int rotation, String texture, String folder);
     
         /**
          *
@@ -304,7 +304,7 @@ public class OgmoReader {
         void layerComplete();
     }
     
-    public class OgmoAdapter implements OgmoListener {
+    public static class OgmoAdapter implements OgmoListener {
         @Override
         public void level(String ogmoVersion, int width, int height, int offsetX, int offsetY, ObjectMap<String, OgmoValue> valuesMap) {
         
@@ -343,7 +343,7 @@ public class OgmoReader {
         }
     
         @Override
-        public void decal(int x, int y, int scaleX, int scaleY, int rotation, String texture, String folder) {
+        public void decal(int x, int y, float scaleX, float scaleY, int rotation, String texture, String folder) {
         
         }
     

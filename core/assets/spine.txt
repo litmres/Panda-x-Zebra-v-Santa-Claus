@@ -1,4 +1,5 @@
 spine/character.json
+spine/decals.json
 spine/libgdx-explosion.json
 spine/libgdx.json
 spine/ray3k.json

@@ -1,0 +1,67 @@
+{
+"skeleton": {
+	"hash": "Ru2IujsJzPQ877+NoLHxoHXZp80",
+	"spine": "3.8.79",
+	"x": -448.1,
+	"y": -226.15,
+	"width": 1514.25,
+	"height": 1206,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "cloud", "bone": "root", "attachment": "cloud" },
+	{ "name": "decal-cake", "bone": "root", "attachment": "decal-cake" },
+	{ "name": "decal-candy", "bone": "root", "attachment": "decal-candy" },
+	{ "name": "decal-candy-cane", "bone": "root", "attachment": "decal-candy-cane" },
+	{ "name": "decal-gumdrop", "bone": "root", "attachment": "decal-gumdrop" },
+	{ "name": "decal-peppermint", "bone": "root", "attachment": "decal-peppermint" },
+	{ "name": "donut", "bone": "root", "attachment": "donut" },
+	{ "name": "level-cream", "bone": "root", "attachment": "level-cream" },
+	{ "name": "level-tile", "bone": "root", "attachment": "level-tile" },
+	{ "name": "level-white", "bone": "root", "attachment": "level-white" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"cloud": {
+				"cloud": { "x": 304.9, "y": 569.85, "width": 1506, "height": 820 }
+			},
+			"decal-cake": {
+				"decal-cake": { "x": 574.58, "y": 337.18, "width": 586, "height": 769 }
+			},
+			"decal-candy": {
+				"decal-candy": { "x": 470.15, "y": 264.47, "width": 1192, "height": 434 }
+			},
+			"decal-candy-cane": {
+				"decal-candy-cane": { "x": 454.28, "y": 317.35, "width": 490, "height": 1087 }
+			},
+			"decal-gumdrop": {
+				"decal-gumdrop": { "x": 431.81, "y": 292.23, "width": 491, "height": 537 }
+			},
+			"decal-peppermint": {
+				"decal-peppermint": { "x": 648.62, "y": 164, "width": 728, "height": 719 }
+			},
+			"donut": {
+				"donut": { "x": 546.82, "y": 329.25, "width": 473, "height": 383 }
+			},
+			"level-cream": {
+				"level-cream": { "x": 581.19, "y": 331.89, "width": 525, "height": 401 }
+			},
+			"level-tile": {
+				"level-tile": { "x": 717.36, "y": 275.05, "width": 213, "height": 258 }
+			},
+			"level-white": {
+				"level-white": { "x": 702.82, "y": 181.19, "width": 525, "height": 401 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

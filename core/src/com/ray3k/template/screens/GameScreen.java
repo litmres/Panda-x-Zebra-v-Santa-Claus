@@ -10,6 +10,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -25,6 +28,10 @@ import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.SkeletonData;
 import com.ray3k.template.Core;
 import com.ray3k.template.JamScreen;
+import com.ray3k.template.OgmoReader;
+import com.ray3k.template.OgmoReader.OgmoAdapter;
+import com.ray3k.template.Utils;
+import com.ray3k.template.entities.DecalEntity;
 import com.ray3k.template.entities.EnemyController;
 import com.ray3k.template.entities.EntityController;
 import com.ray3k.template.entities.PlayerEntity;
@@ -108,6 +115,29 @@ public class GameScreen extends JamScreen {
                 return false;
             }
         });
+    
+        OgmoReader ogmoReader = new OgmoReader();
+        ogmoReader.addListener(new OgmoAdapter() {
+            private String layerName;
+            
+            @Override
+            public void layer(String name, int gridCellWidth, int gridCellHeight, int offsetX, int offsetY) {
+                layerName = name;
+            }
+    
+            @Override
+            public void decal(int x, int y, float scaleX, float scaleY, int rotation, String texture, String folder) {
+                TextureAtlas textureAtlas = gameScreen.assetManager.get("spine/libGDX Jam December 2019.atlas");
+                DecalEntity decalEntity = new DecalEntity();
+                decalEntity.sprite = textureAtlas.createSprite(Utils.fileName(texture));
+                decalEntity.scaleX = scaleX;
+                decalEntity.scaleY = scaleY;
+                decalEntity.setPosition(x, y);
+                if (layerName.equals("background")) decalEntity.depth = 100000;
+                entityController.add(decalEntity);
+            }
+        });
+        ogmoReader.readFile(Gdx.files.internal("levels/level1.json"));
     }
     
     @Override

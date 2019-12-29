@@ -14,7 +14,7 @@ public class EnemyController extends Entity {
     private EntityController entityController;
     private int enemyMaxCount = 35;
     private int enemyCounter;
-    private float santaDelay = 15f;
+    private float santaDelay = 7f;
     
     @Override
     public void create() {

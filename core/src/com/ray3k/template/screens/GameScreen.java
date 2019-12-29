@@ -1,6 +1,7 @@
 package com.ray3k.template.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
@@ -10,7 +11,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -29,7 +33,9 @@ import space.earlygrey.shapedrawer.ShapeDrawer;
 public class GameScreen extends JamScreen {
     public static GameScreen gameScreen;
     public static final Color BG_COLOR = new Color();
-    private Action action;
+    private Action winAction;
+    private Action loseAction;
+    private Action quitAction;
     private Core core;
     public AssetManager assetManager;
     private Batch batch;
@@ -44,11 +50,13 @@ public class GameScreen extends JamScreen {
     public static final int CHARACTER_MIN_DEPTH = 1000;
     public static Array<Sound> hurtSounds;
     
-    public GameScreen(Action action) {
+    public GameScreen(Action winAction, Action loseAction, Action quitAction) {
         BG_COLOR.set(Color.LIGHT_GRAY);
         
         gameScreen = this;
-        this.action = action;
+        this.winAction = winAction;
+        this.loseAction = loseAction;
+        this.quitAction = quitAction;
         core = Core.core;
         assetManager = core.assetManager;
         batch = core.batch;
@@ -90,6 +98,16 @@ public class GameScreen extends JamScreen {
         hurtSounds.add(assetManager.get("sfx/hurt1.mp3"));
         hurtSounds.add(assetManager.get("sfx/hurt2.mp3"));
         hurtSounds.add(assetManager.get("sfx/hurt3.mp3"));
+        
+        stage.addListener(new InputListener() {
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if (keycode == Keys.ESCAPE) {
+                    stage.addAction(quitAction);
+                }
+                return false;
+            }
+        });
     }
     
     @Override
@@ -137,5 +155,13 @@ public class GameScreen extends JamScreen {
         vfxEffect.dispose();
         Music music = assetManager.get("bgm/game.mp3");
         music.stop();
+    }
+    
+    public void win() {
+        stage.addAction(Actions.delay(3f, winAction));
+    }
+    
+    public void lose() {
+        stage.addAction(Actions.delay(3f, loseAction));
     }
 }

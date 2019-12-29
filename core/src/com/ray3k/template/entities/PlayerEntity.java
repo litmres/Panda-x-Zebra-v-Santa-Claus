@@ -243,6 +243,6 @@ public class PlayerEntity extends Entity {
     
     @Override
     public void destroy() {
-    
+        gameScreen.lose();
     }
 }

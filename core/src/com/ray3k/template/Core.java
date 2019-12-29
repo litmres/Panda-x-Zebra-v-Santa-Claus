@@ -164,7 +164,9 @@ public class Core extends JamGame {
     }
     
     private Screen createGameScreen() {
-        return new GameScreen(Actions.run(() -> setScreen(createCreditsScreen())));
+        return new GameScreen(Actions.run(() -> setScreen(createWinnerScreen())),
+                Actions.run(() -> setScreen(createGameOverScreen())),
+                Actions.run(() -> setScreen(createMenuScreen())));
     }
     
     private Screen createOptionsScreen() {
@@ -177,5 +179,13 @@ public class Core extends JamGame {
     
     private Screen createStoryScreen() {
         return new StoryScreen(Actions.run(() -> setScreen(createGameScreen())));
+    }
+    
+    private Screen createGameOverScreen() {
+        return new GameOverScreen(Actions.run(() -> setScreen(createMenuScreen())));
+    }
+    
+    private Screen createWinnerScreen() {
+        return new WinnerScreen(Actions.run(() -> setScreen(createMenuScreen())));
     }
 }

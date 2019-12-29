@@ -1,7 +1,7 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
@@ -11,10 +11,8 @@ import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Slot;
-import com.ray3k.template.Core;
 import com.ray3k.template.Core.Binding;
 import com.ray3k.template.Utils;
-import com.ray3k.template.entities.EnemyEntity.Mode;
 import com.ray3k.template.screens.GameScreen;
 
 public class PlayerEntity extends Entity {
@@ -37,6 +35,10 @@ public class PlayerEntity extends Entity {
     public Rectangle attackBboxRectangle = new Rectangle();
     public float health;
     public Array<EnemyEntity> enemiesHit;
+    public static final float LEVEL_BORDER_LEFT = 100f;
+    public static final float LEVEL_BORDER_RIGHT = 100f;
+    public static final float LEVEL_BORDER_BOTTOM = 10f;
+    public static final float LEVEL_BORDER_TOP = 200f;
     
     @Override
     public void create() {
@@ -167,6 +169,22 @@ public class PlayerEntity extends Entity {
                 } else if (gameScreen.isBindingPressed(Binding.DOWN)) {
                     deltaY = -WALK_V_SPEED;
                 } else {
+                    deltaY = 0;
+                }
+                
+                if (x < LEVEL_BORDER_LEFT) {
+                    x = LEVEL_BORDER_LEFT;
+                    deltaX = 0;
+                } else if (x > Gdx.graphics.getWidth() - LEVEL_BORDER_RIGHT) {
+                    x = Gdx.graphics.getWidth() - LEVEL_BORDER_RIGHT;
+                    deltaX = 0;
+                }
+                
+                if (y < LEVEL_BORDER_BOTTOM) {
+                    y = LEVEL_BORDER_BOTTOM;
+                    deltaY = 0;
+                } else if (y > Gdx.graphics.getHeight() - LEVEL_BORDER_TOP) {
+                    y = Gdx.graphics.getHeight() - LEVEL_BORDER_TOP;
                     deltaY = 0;
                 }
                 break;
